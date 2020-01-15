@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
 		<license type="expression">MIT</license>
-    <projectUrl>https://github.com/DRIVER-EU/csharp-test-bed-adapter</projectUrl>
+    <projectUrl>https://github.com/DRIVER-EU/common-simulation-space-messages</projectUrl>
     <icon>images\icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
