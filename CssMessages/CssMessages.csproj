@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60FCC141-A320-4ED0-AF18-1CA2A7397B03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CssMessages</RootNamespace>
+    <AssemblyName>CssMessages</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Confluent.Apache.Avro, Version=1.7.7.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Confluent.Apache.Avro.1.7.7.5\lib\net452\Confluent.Apache.Avro.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\SessionManagement.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\SessionState.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\TimeManagement.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\TimeState.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\Area.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\Item.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\Line.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\PointOfInterest.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\Post.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\entity\Unit.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\request\RequestAreaOfInterest.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\request\RequestInformation.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\request\RequestOwnership.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\request\RequestStartInject.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\request\RequestTransport.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Address.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationArea.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationItem.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationLine.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationPOI.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationPost.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\AggregationUnit.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrArea.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrItem.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrLine.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrPOI.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrPost.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\aggr\AggrUnit.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\EntityDeleted.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Header.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Location.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Orientation.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\OwnershipType.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\RequestCancelled.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Response.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\UnitLocation.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\support\Velocity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\avro-schemas\simulation_aggr_area-value.avsc" />
+    <None Include="data\avro-schemas\simulation_aggr_item-value.avsc" />
+    <None Include="data\avro-schemas\simulation_aggr_line-value.avsc" />
+    <None Include="data\avro-schemas\simulation_aggr_poi-value.avsc" />
+    <None Include="data\avro-schemas\simulation_aggr_post-value.avsc" />
+    <None Include="data\avro-schemas\simulation_aggr_unit-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_area-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_deleted-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_item-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_line-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_poi-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_post-value.avsc" />
+    <None Include="data\avro-schemas\simulation_entity_unit-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_aoi-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_cancelled-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_information-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_ownership-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_startinject-value.avsc" />
+    <None Include="data\avro-schemas\simulation_request_transport-value.avsc" />
+    <None Include="data\avro-schemas\simulation_session_mgmt-value.avsc" />
+    <None Include="data\avro-schemas\simulation_time_mgmt-value.avsc" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
