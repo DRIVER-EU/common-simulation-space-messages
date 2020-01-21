@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Confluent.Apache.Avro, Version=1.7.7.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Confluent.Apache.Avro.1.7.7.5\lib\net452\Confluent.Apache.Avro.dll</HintPath>
+    <Reference Include="Confluent.Apache.Avro, Version=1.7.7.7, Culture=neutral, PublicKeyToken=eb2f4c54031a04ba, processorArchitecture=MSIL">
+      <HintPath>..\packages\Confluent.Apache.Avro.1.7.7.7\lib\net452\Confluent.Apache.Avro.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
