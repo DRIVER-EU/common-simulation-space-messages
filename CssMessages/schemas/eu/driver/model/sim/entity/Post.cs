@@ -49,11 +49,7 @@ namespace eu.driver.model.sim.entity
 				"ng\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map contai" +
 				"ning post specific information: key – unique name of the specific property; valu" +
 				"e – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\"" +
-				":\"string\"}]},{\"name\":\"mediumType\",\"doc\":\"Optional type of the medium the post is" +
-				" published on\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"mediumName\",\"do" +
-				"c\":\"Optional name of the medium the post is published on\",\"default\":null,\"type\":" +
-				"[\"null\",\"string\"]}],\"_comment\":\"TODO: Include type property into tags? Can heade" +
-				"r become null?\"}");
+				":\"string\"}]}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the post
 		/// </summary>
@@ -86,14 +82,6 @@ namespace eu.driver.model.sim.entity
 		/// Optional map containing post specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
 		private IDictionary<string,System.String> _tags;
-		/// <summary>
-		/// Optional type of the medium the post is published on
-		/// </summary>
-		private string _mediumType;
-		/// <summary>
-		/// Optional name of the medium the post is published on
-		/// </summary>
-		private string _mediumName;
 		public virtual Schema Schema
 		{
 			get
@@ -213,34 +201,6 @@ namespace eu.driver.model.sim.entity
 				this._tags = value;
 			}
 		}
-		/// <summary>
-		/// Optional type of the medium the post is published on
-		/// </summary>
-		public string mediumType
-		{
-			get
-			{
-				return this._mediumType;
-			}
-			set
-			{
-				this._mediumType = value;
-			}
-		}
-		/// <summary>
-		/// Optional name of the medium the post is published on
-		/// </summary>
-		public string mediumName
-		{
-			get
-			{
-				return this._mediumName;
-			}
-			set
-			{
-				this._mediumName = value;
-			}
-		}
 		public virtual object Get(int fieldPos)
 		{
 			switch (fieldPos)
@@ -253,8 +213,6 @@ namespace eu.driver.model.sim.entity
 			case 5: return this.owner;
 			case 6: return this.timestamp;
 			case 7: return this.tags;
-			case 8: return this.mediumType;
-			case 9: return this.mediumName;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -270,8 +228,6 @@ namespace eu.driver.model.sim.entity
 			case 5: this.owner = (System.String)fieldValue; break;
 			case 6: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			case 7: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 8: this.mediumType = (System.String)fieldValue; break;
-			case 9: this.mediumName = (System.String)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

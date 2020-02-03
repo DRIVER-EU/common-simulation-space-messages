@@ -15,28 +15,7 @@ namespace eu.driver.model.sim.config
 	
 	public partial class SessionManagement : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"SessionManagement\",\"namespace\":\"eu.driver.model.sim.conf" +
-				"ig\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the session\",\"type\":\"stri" +
-				"ng\"},{\"name\":\"state\",\"doc\":\"state the session is currently in\",\"type\":{\"type\":\"e" +
-				"num\",\"name\":\"SessionState\",\"namespace\":\"eu.driver.model.sim.config\",\"symbols\":[\"" +
-				"Init\",\"Start\",\"Stop\",\"Close\"]}},{\"name\":\"name\",\"doc\":\"Optional name of the sessi" +
-				"on\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map " +
-				"containing session specific information: key – unique name of the specific prope" +
-				"rty; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\"" +
-				",\"values\":\"string\"}]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in mil" +
-				"liseconds marking the time the update was or needs to be performed\",\"default\":nu" +
-				"ll,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"simulationT" +
-				"ime\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the fictive date an" +
-				"d time the session should run with\",\"default\":null,\"type\":[\"null\",\"long\"],\"logic" +
-				"alType\":\"timestamp-millis\"},{\"name\":\"response\",\"doc\":\"Optional response of a con" +
-				"nected application\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Respo" +
-				"nse\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"code\",\"doc\":\"S" +
-				"tatus code that best serves the response of the respondent, possibly similar to " +
-				"a HTTP response status code.\",\"type\":\"int\"},{\"name\":\"message\",\"doc\":\"Optional in" +
-				"formation accompanying the response code\",\"default\":null,\"type\":[\"null\",\"string\"" +
-				"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking t" +
-				"he time the respond was given\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalTyp" +
-				"e\":\"timestamp-millis\"}]}]}],\"_comment\":\"\"}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""SessionManagement"",""namespace"":""eu.driver.model.sim.config"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the session"",""type"":""string""},{""name"":""state"",""doc"":""state the session is currently in"",""type"":{""type"":""enum"",""name"":""SessionState"",""namespace"":""eu.driver.model.sim.config"",""symbols"":[""Initialisation"",""Start"",""Stop"",""Close""]}},{""name"":""name"",""doc"":""Optional name of the session"",""default"":null,""type"":[""null"",""string""]},{""name"":""tags"",""doc"":""Optional map containing session specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the update was or needs to be performed"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""},{""name"":""simulationTime"",""doc"":""Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}],""_comment"":""""}");
 		/// <summary>
 		/// Unique identifier of the session
 		/// </summary>
@@ -61,10 +40,6 @@ namespace eu.driver.model.sim.config
 		/// Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with
 		/// </summary>
 		private System.Nullable<long> _simulationTime;
-		/// <summary>
-		/// Optional response of a connected application
-		/// </summary>
-		private eu.driver.model.sim.support.Response _response;
 		public virtual Schema Schema
 		{
 			get
@@ -156,20 +131,6 @@ namespace eu.driver.model.sim.config
 				this._simulationTime = value;
 			}
 		}
-		/// <summary>
-		/// Optional response of a connected application
-		/// </summary>
-		public eu.driver.model.sim.support.Response response
-		{
-			get
-			{
-				return this._response;
-			}
-			set
-			{
-				this._response = value;
-			}
-		}
 		public virtual object Get(int fieldPos)
 		{
 			switch (fieldPos)
@@ -180,7 +141,6 @@ namespace eu.driver.model.sim.config
 			case 3: return this.tags;
 			case 4: return this.timestamp;
 			case 5: return this.simulationTime;
-			case 6: return this.response;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -194,7 +154,6 @@ namespace eu.driver.model.sim.config
 			case 3: this.tags = (IDictionary<string,System.String>)fieldValue; break;
 			case 4: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			case 5: this.simulationTime = (System.Nullable<long>)fieldValue; break;
-			case 6: this.response = (eu.driver.model.sim.support.Response)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

@@ -15,7 +15,7 @@ namespace eu.driver.model.sim.request
 	
 	public partial class RequestOwnership : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""RequestOwnership"",""namespace"":""eu.driver.model.sim.request"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the request"",""type"":""string""},{""name"":""applicant"",""doc"":""Unique identifier of the connected application sending the request"",""type"":""string""},{""name"":""entity"",""doc"":""Unique identifier of the entity the applicant requests ownership over"",""type"":""string""},{""name"":""ownershipType"",""doc"":""The type of ownership that is requested"",""type"":{""type"":""enum"",""name"":""OwnershipType"",""namespace"":""eu.driver.model.sim.support"",""symbols"":[""TakeOver"",""TakeOverAndReturn"",""Alter""]}},{""name"":""response"",""doc"":""Optional response of a connected application receiving this request"",""default"":null,""type"":[""null"",{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""code"",""doc"":""Status code that best serves the response of the respondent, possibly similar to a HTTP response status code."",""type"":""int""},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}]}],""_comment"":""""}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""RequestOwnership"",""namespace"":""eu.driver.model.sim.request"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the request"",""type"":""string""},{""name"":""applicant"",""doc"":""Unique identifier of the connected application sending the request"",""type"":""string""},{""name"":""entity"",""doc"":""Unique identifier of the entity the applicant requests ownership over"",""type"":""string""},{""name"":""tags"",""doc"":""Optional map containing ownership request specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]}],""_comment"":""""}");
 		/// <summary>
 		/// Unique identifier of the request
 		/// </summary>
@@ -29,13 +29,9 @@ namespace eu.driver.model.sim.request
 		/// </summary>
 		private string _entity;
 		/// <summary>
-		/// The type of ownership that is requested
+		/// Optional map containing ownership request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
-		private eu.driver.model.sim.support.OwnershipType _ownershipType;
-		/// <summary>
-		/// Optional response of a connected application receiving this request
-		/// </summary>
-		private eu.driver.model.sim.support.Response _response;
+		private IDictionary<string,System.String> _tags;
 		public virtual Schema Schema
 		{
 			get
@@ -86,31 +82,17 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// The type of ownership that is requested
+		/// Optional map containing ownership request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
-		public eu.driver.model.sim.support.OwnershipType ownershipType
+		public IDictionary<string,System.String> tags
 		{
 			get
 			{
-				return this._ownershipType;
+				return this._tags;
 			}
 			set
 			{
-				this._ownershipType = value;
-			}
-		}
-		/// <summary>
-		/// Optional response of a connected application receiving this request
-		/// </summary>
-		public eu.driver.model.sim.support.Response response
-		{
-			get
-			{
-				return this._response;
-			}
-			set
-			{
-				this._response = value;
+				this._tags = value;
 			}
 		}
 		public virtual object Get(int fieldPos)
@@ -120,8 +102,7 @@ namespace eu.driver.model.sim.request
 			case 0: return this.id;
 			case 1: return this.applicant;
 			case 2: return this.entity;
-			case 3: return this.ownershipType;
-			case 4: return this.response;
+			case 3: return this.tags;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -132,8 +113,7 @@ namespace eu.driver.model.sim.request
 			case 0: this.id = (System.String)fieldValue; break;
 			case 1: this.applicant = (System.String)fieldValue; break;
 			case 2: this.entity = (System.String)fieldValue; break;
-			case 3: this.ownershipType = (eu.driver.model.sim.support.OwnershipType)fieldValue; break;
-			case 4: this.response = (eu.driver.model.sim.support.Response)fieldValue; break;
+			case 3: this.tags = (IDictionary<string,System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

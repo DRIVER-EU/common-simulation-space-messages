@@ -27,17 +27,24 @@ namespace eu.driver.model.sim.entity
 				"e 0 is the Prime Meridian (line going through the geographic north, Greenwich, a" +
 				"nd the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in" +
 				" meters, where 0 is the surface of the WGS84-based ellipsoid\",\"default\":null,\"ty" +
-				"pe\":[\"null\",\"double\"]}]}},{\"name\":\"name\",\"doc\":\"Name of the item\",\"default\":null" +
-				",\"type\":[\"null\",\"string\"]},{\"name\":\"itemType\",\"doc\":\"Optional type of the item\"," +
-				"\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique " +
-				"identifier of the connected application owning the item\",\"default\":null,\"type\":[" +
-				"\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in millise" +
-				"conds marking the time the update was performed\",\"default\":null,\"type\":[\"null\",\"" +
-				"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map cont" +
-				"aining item specific information: key – unique name of the specific property; va" +
-				"lue – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"value" +
-				"s\":\"string\"}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation of the item\",\"d" +
-				"efault\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"namespace\":\"e" +
+				"pe\":[\"null\",\"double\"]}]}},{\"name\":\"orientation\",\"doc\":\"Optional orientation of t" +
+				"he item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"na" +
+				"mespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal" +
+				" degrees, ranging from [0, 360) where 0 is pointing towards the geographic north" +
+				". The yaw value is applied in a clockwise rotation over the item’s heading/yaw-a" +
+				"xis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it fac" +
+				"e west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from" +
+				" [-90, 90] where 0 is perpendicular to the line between the item’s location and " +
+				"the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter" +
+				"-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the it" +
+				"em face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwa" +
+				"rds\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-1" +
+				"80, 180] where 0 is perpendicular to the line between the item’s location and th" +
+				"e centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise " +
+				"rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll " +
+				"45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the lef" +
+				"t\",\"type\":\"double\"}]}]},{\"name\":\"velocity\",\"doc\":\"Optional velocity of the item\"" +
+				",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Velocity\",\"namespace\":\"e" +
 				"u.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, r" +
 				"anging from [0, 360) where 0 is pointing towards the geographic north. The yaw v" +
 				"alue is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw " +
@@ -47,44 +54,32 @@ namespace eu.driver.model.sim.entity
 				"of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise " +
 				"rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 " +
 				"degrees upwards, while a pitch of -20 makes it face 20 degrees downwards\",\"type\"" +
-				":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-180, 180] wh" +
-				"ere 0 is perpendicular to the line between the item’s location and the centre of" +
-				" the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation ov" +
-				"er the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees " +
-				"to the right, while a roll of -50 makes it roll 50 degrees to the left\",\"type\":\"" +
-				"double\"}]}]},{\"name\":\"velocity\",\"doc\":\"Optional velocity of the item\",\"default\":" +
-				"null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Velocity\",\"namespace\":\"eu.driver.mo" +
-				"del.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, ranging from" +
-				" [0, 360) where 0 is pointing towards the geographic north. The yaw value is app" +
-				"lied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90" +
-				" makes the item face east, while a yaw of 270 makes it face west\",\"type\":\"double" +
-				"\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is " +
-				"perpendicular to the line between the item’s location and the centre of the WGS8" +
-				"4-based ellipsoid. The pitch value is applied in a counter-clockwise rotation ov" +
-				"er the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upw" +
-				"ards, while a pitch of -20 makes it face 20 degrees downwards\",\"type\":\"double\"}," +
-				"{\"name\":\"magnitude\",\"doc\":\"In meter per seconds, ranging from [0, infinity) wher" +
-				"e 0 is standing still relative to the earth’s rotation\",\"type\":\"double\"}]}]}],\"_" +
-				"comment\":\"TODO: Include itemType property into tags? Do we want to include child" +
-				"ren (items that belong to this main time) to facilitate items inside items?\"}}}," +
-				"{\"name\":\"name\",\"doc\":\"Optional name of the unit\",\"default\":null,\"type\":[\"null\",\"" +
-				"string\"]},{\"name\":\"type\",\"doc\":\"Optional type of the unit\",\"default\":null,\"type\"" +
-				":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique identifier of the con" +
-				"nected application owning the unit\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"n" +
-				"ame\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the tim" +
-				"e the update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":" +
-				"\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map containing unit specific " +
-				"information: key – unique name of the specific property; value – value of that p" +
-				"roperty\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name" +
-				"\":\"location\",\"doc\":\"Optional location of the unit\",\"default\":null,\"type\":[\"null\"" +
-				",{\"type\":\"record\",\"name\":\"UnitLocation\",\"namespace\":\"eu.driver.model.sim.support" +
-				"\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging from [-90, 90]" +
-				" where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal " +
-				"degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going thro" +
-				"ugh the geographic north, Greenwich, and the geographic south)\",\"type\":\"double\"}" +
-				",{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surface of the WGS" +
-				"84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}]}],\"_comment\":\"TO" +
-				"DO: Include type property into tags?\"}");
+				":\"double\"},{\"name\":\"magnitude\",\"doc\":\"In meter per seconds, ranging from [0, inf" +
+				"inity) where 0 is standing still relative to the earth’s rotation\",\"type\":\"doubl" +
+				"e\"}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the item\",\"default\":null,\"type\":[" +
+				"\"null\",\"string\"]},{\"name\":\"type\",\"doc\":\"Optional type of the item\",\"default\":nul" +
+				"l,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique identifier of" +
+				" the connected application owning the item\",\"default\":null,\"type\":[\"null\",\"strin" +
+				"g\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking" +
+				" the time the update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logic" +
+				"alType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map containing item s" +
+				"pecific information: key – unique name of the specific property; value – value o" +
+				"f that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]" +
+				"}]}}},{\"name\":\"name\",\"doc\":\"Optional name of the unit\",\"default\":null,\"type\":[\"n" +
+				"ull\",\"string\"]},{\"name\":\"type\",\"doc\":\"Optional type of the unit\",\"default\":null," +
+				"\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique identifier of t" +
+				"he connected application owning the unit\",\"default\":null,\"type\":[\"null\",\"string\"" +
+				"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking t" +
+				"he time the update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logical" +
+				"Type\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map containing unit spe" +
+				"cific information: key – unique name of the specific property; value – value of " +
+				"that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}," +
+				"{\"name\":\"location\",\"doc\":\"Optional location of the unit\",\"default\":null,\"type\":[" +
+				"\"null\",\"eu.driver.model.sim.support.Location\"]},{\"name\":\"orientation\",\"doc\":\"Opt" +
+				"ional orientation of the item\",\"default\":null,\"type\":[\"null\",\"eu.driver.model.si" +
+				"m.support.Orientation\"]},{\"name\":\"velocity\",\"doc\":\"Optional velocity of the item" +
+				"\",\"default\":null,\"type\":[\"null\",\"eu.driver.model.sim.support.Velocity\"]}],\"_comm" +
+				"ent\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the unit
 		/// </summary>
@@ -116,7 +111,15 @@ namespace eu.driver.model.sim.entity
 		/// <summary>
 		/// Optional location of the unit
 		/// </summary>
-		private eu.driver.model.sim.support.UnitLocation _location;
+		private eu.driver.model.sim.support.Location _location;
+		/// <summary>
+		/// Optional orientation of the item
+		/// </summary>
+		private eu.driver.model.sim.support.Orientation _orientation;
+		/// <summary>
+		/// Optional velocity of the item
+		/// </summary>
+		private eu.driver.model.sim.support.Velocity _velocity;
 		public virtual Schema Schema
 		{
 			get
@@ -225,7 +228,7 @@ namespace eu.driver.model.sim.entity
 		/// <summary>
 		/// Optional location of the unit
 		/// </summary>
-		public eu.driver.model.sim.support.UnitLocation location
+		public eu.driver.model.sim.support.Location location
 		{
 			get
 			{
@@ -234,6 +237,34 @@ namespace eu.driver.model.sim.entity
 			set
 			{
 				this._location = value;
+			}
+		}
+		/// <summary>
+		/// Optional orientation of the item
+		/// </summary>
+		public eu.driver.model.sim.support.Orientation orientation
+		{
+			get
+			{
+				return this._orientation;
+			}
+			set
+			{
+				this._orientation = value;
+			}
+		}
+		/// <summary>
+		/// Optional velocity of the item
+		/// </summary>
+		public eu.driver.model.sim.support.Velocity velocity
+		{
+			get
+			{
+				return this._velocity;
+			}
+			set
+			{
+				this._velocity = value;
 			}
 		}
 		public virtual object Get(int fieldPos)
@@ -248,6 +279,8 @@ namespace eu.driver.model.sim.entity
 			case 5: return this.timestamp;
 			case 6: return this.tags;
 			case 7: return this.location;
+			case 8: return this.orientation;
+			case 9: return this.velocity;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -262,7 +295,9 @@ namespace eu.driver.model.sim.entity
 			case 4: this.owner = (System.String)fieldValue; break;
 			case 5: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			case 6: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 7: this.location = (eu.driver.model.sim.support.UnitLocation)fieldValue; break;
+			case 7: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
+			case 8: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
+			case 9: this.velocity = (eu.driver.model.sim.support.Velocity)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

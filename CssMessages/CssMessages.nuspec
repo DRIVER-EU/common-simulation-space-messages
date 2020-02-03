@@ -11,7 +11,7 @@
     <icon>images\icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Upgraded the Confluent.Apache.Avro dependency to version 1.7.7.7</releaseNotes>
+    <releaseNotes>Final changes by the standard</releaseNotes>
     <copyright>Copyright (C) 2017-2020 XVR Simulation B.V., Delft, The Netherlands; Martijn Hendriks "hendriks @ xvrsim.com"; part of "DRIVER+ WP923 Test-bed infrastructure" project; licensed under the MIT license : https://github.com/DRIVER-EU/test-bed/blob/master/LICENSE</copyright>
     <tags>DRIVER+ Test-bed, Common Simulation Space</tags>
 		<dependencies>

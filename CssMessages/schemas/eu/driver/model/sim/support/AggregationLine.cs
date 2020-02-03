@@ -17,26 +17,26 @@ namespace eu.driver.model.sim.support
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregationLine\",\"namespace\":\"eu.driver.model.sim.suppor" +
 				"t\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the aggregation update\",\"t" +
-				"ype\":\"string\"},{\"name\":\"syncMap\",\"doc\":\"Map containing key-value pairs, all with" +
-				" unique keys: key – unique identifier of the line; value – specific aggregated l" +
-				"ine properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrLine\"" +
-				",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"points\",\"doc\"" +
-				":\"Optional list of locations, creating an edge between every consecutive locatio" +
-				"n in the list\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"re" +
-				"cord\",\"name\":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"na" +
-				"me\":\"latitude\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the " +
-				"equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging" +
-				" from (-180, 180] where 0 is the Prime Meridian (line going through the geograph" +
-				"ic north, Greenwich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitu" +
-				"de\",\"doc\":\"Optional in meters, where 0 is the surface of the WGS84-based ellipso" +
-				"id\",\"default\":null,\"type\":[\"null\",\"double\"]}]}}]},{\"name\":\"name\",\"doc\":\"Optional" +
-				" name of the line\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\"" +
-				":\"Optional map containing line specific information: key – unique name of the sp" +
-				"ecific property; value – value of that property\",\"default\":null,\"type\":[\"null\",{" +
-				"\"type\":\"map\",\"values\":\"string\"}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX E" +
-				"poch time in milliseconds marking the time the aggregated update was performed\"," +
-				"\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comme" +
-				"nt\":\"\"}");
+				"ype\":\"string\"},{\"name\":\"map\",\"doc\":\"Map containing key-value pairs, all with uni" +
+				"que keys: key – unique identifier of the line; value – specific aggregated line " +
+				"properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrLine\",\"na" +
+				"mespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"points\",\"doc\":\"Op" +
+				"tional list of locations, creating an edge between every consecutive location in" +
+				" the list\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record" +
+				"\",\"name\":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":" +
+				"\"latitude\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the equa" +
+				"tor\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging fro" +
+				"m (-180, 180] where 0 is the Prime Meridian (line going through the geographic n" +
+				"orth, Greenwich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\"," +
+				"\"doc\":\"Optional in meters, where 0 is the surface of the WGS84-based ellipsoid\"," +
+				"\"default\":null,\"type\":[\"null\",\"double\"]}]}}]},{\"name\":\"name\",\"doc\":\"Optional nam" +
+				"e of the line\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Op" +
+				"tional map containing line specific information: key – unique name of the specif" +
+				"ic property; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"typ" +
+				"e\":\"map\",\"values\":\"string\"}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch" +
+				" time in milliseconds marking the time the aggregated update was performed\",\"def" +
+				"ault\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\":" +
+				"\"\"}");
 		/// <summary>
 		/// Unique identifier of the aggregation update
 		/// </summary>
@@ -44,7 +44,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the line; value – specific aggregated line properties
 		/// </summary>
-		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine> _syncMap;
+		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine> _map;
 		/// <summary>
 		/// Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed
 		/// </summary>
@@ -73,15 +73,15 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the line; value – specific aggregated line properties
 		/// </summary>
-		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine> syncMap
+		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine> map
 		{
 			get
 			{
-				return this._syncMap;
+				return this._map;
 			}
 			set
 			{
-				this._syncMap = value;
+				this._map = value;
 			}
 		}
 		/// <summary>
@@ -103,7 +103,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: return this.id;
-			case 1: return this.syncMap;
+			case 1: return this.map;
 			case 2: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
@@ -113,7 +113,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.syncMap = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine>)fieldValue; break;
+			case 1: this.map = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrLine>)fieldValue; break;
 			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};

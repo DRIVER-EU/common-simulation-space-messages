@@ -15,43 +15,11 @@ namespace eu.driver.model.sim.config
 	
 	public partial class TimeManagement : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"TimeManagement\",\"namespace\":\"eu.driver.model.sim.config\"" +
-				",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the session\",\"type\":\"string\"" +
-				"},{\"name\":\"state\",\"doc\":\"State the time is currently in\",\"type\":{\"type\":\"enum\",\"" +
-				"name\":\"TimeState\",\"namespace\":\"eu.driver.model.sim.config\",\"symbols\":[\"Start\",\"P" +
-				"ause\",\"Jump\",\"SpeedChange\",\"Resume\",\"Stop\"]}},{\"name\":\"name\",\"doc\":\"Optional nam" +
-				"e of the session\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":" +
-				"\"Optional map containing session time specific information: key – unique name of" +
-				" the specific property; value – value of that property\",\"default\":null,\"type\":[\"" +
-				"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name\":\"timestamp\",\"doc\":\"Optional UNI" +
-				"X Epoch time in milliseconds marking the time the update was or needs to be perf" +
-				"ormed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{" +
-				"\"name\":\"simulationTime\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking " +
-				"the fictive date and time the session should run with\",\"default\":null,\"type\":[\"n" +
-				"ull\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"simulationSpeed\",\"doc\":\"" +
-				"Optional speed factor this session wants to run a simulation. The range of this " +
-				"speed factor is [0, infinity)\",\"default\":null,\"type\":[\"null\",\"float\"]},{\"name\":\"" +
-				"response\",\"doc\":\"Optional response of a connected application\",\"default\":null,\"t" +
-				"ype\":[\"null\",{\"type\":\"record\",\"name\":\"Response\",\"namespace\":\"eu.driver.model.sim" +
-				".support\",\"fields\":[{\"name\":\"code\",\"doc\":\"Status code that best serves the respo" +
-				"nse of the respondent, possibly similar to a HTTP response status code.\",\"type\":" +
-				"\"int\"},{\"name\":\"message\",\"doc\":\"Optional information accompanying the response c" +
-				"ode\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optiona" +
-				"l UNIX Epoch time in milliseconds marking the time the respond was given\",\"defau" +
-				"lt\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}]}]}],\"_comment" +
-				"\":\"\"}");
-		/// <summary>
-		/// Unique identifier of the session
-		/// </summary>
-		private string _id;
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""TimeManagement"",""namespace"":""eu.driver.model.sim.config"",""fields"":[{""name"":""state"",""doc"":""State the time is currently in"",""type"":{""type"":""enum"",""name"":""TimeState"",""namespace"":""eu.driver.model.sim.config"",""symbols"":[""Initialisation"",""Started"",""Paused"",""Stopped"",""Reset""]}},{""name"":""tags"",""doc"":""Optional map containing session time specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the update was or needs to be performed"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""},{""name"":""simulationTime"",""doc"":""Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""},{""name"":""simulationSpeed"",""doc"":""Optional speed factor this session wants to run a simulation. The range of this speed factor is [0, infinity)"",""default"":null,""type"":[""null"",""float""]}],""_comment"":""""}");
 		/// <summary>
 		/// State the time is currently in
 		/// </summary>
 		private eu.driver.model.sim.config.TimeState _state;
-		/// <summary>
-		/// Optional name of the session
-		/// </summary>
-		private string _name;
 		/// <summary>
 		/// Optional map containing session time specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
@@ -68,29 +36,11 @@ namespace eu.driver.model.sim.config
 		/// Optional speed factor this session wants to run a simulation. The range of this speed factor is [0, infinity)
 		/// </summary>
 		private System.Nullable<float> _simulationSpeed;
-		/// <summary>
-		/// Optional response of a connected application
-		/// </summary>
-		private eu.driver.model.sim.support.Response _response;
 		public virtual Schema Schema
 		{
 			get
 			{
 				return TimeManagement._SCHEMA;
-			}
-		}
-		/// <summary>
-		/// Unique identifier of the session
-		/// </summary>
-		public string id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				this._id = value;
 			}
 		}
 		/// <summary>
@@ -105,20 +55,6 @@ namespace eu.driver.model.sim.config
 			set
 			{
 				this._state = value;
-			}
-		}
-		/// <summary>
-		/// Optional name of the session
-		/// </summary>
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				this._name = value;
 			}
 		}
 		/// <summary>
@@ -177,32 +113,15 @@ namespace eu.driver.model.sim.config
 				this._simulationSpeed = value;
 			}
 		}
-		/// <summary>
-		/// Optional response of a connected application
-		/// </summary>
-		public eu.driver.model.sim.support.Response response
-		{
-			get
-			{
-				return this._response;
-			}
-			set
-			{
-				this._response = value;
-			}
-		}
 		public virtual object Get(int fieldPos)
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.id;
-			case 1: return this.state;
-			case 2: return this.name;
-			case 3: return this.tags;
-			case 4: return this.timestamp;
-			case 5: return this.simulationTime;
-			case 6: return this.simulationSpeed;
-			case 7: return this.response;
+			case 0: return this.state;
+			case 1: return this.tags;
+			case 2: return this.timestamp;
+			case 3: return this.simulationTime;
+			case 4: return this.simulationSpeed;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -210,14 +129,11 @@ namespace eu.driver.model.sim.config
 		{
 			switch (fieldPos)
 			{
-			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.state = (eu.driver.model.sim.config.TimeState)fieldValue; break;
-			case 2: this.name = (System.String)fieldValue; break;
-			case 3: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 4: this.timestamp = (System.Nullable<long>)fieldValue; break;
-			case 5: this.simulationTime = (System.Nullable<long>)fieldValue; break;
-			case 6: this.simulationSpeed = (System.Nullable<float>)fieldValue; break;
-			case 7: this.response = (eu.driver.model.sim.support.Response)fieldValue; break;
+			case 0: this.state = (eu.driver.model.sim.config.TimeState)fieldValue; break;
+			case 1: this.tags = (IDictionary<string,System.String>)fieldValue; break;
+			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
+			case 3: this.simulationTime = (System.Nullable<long>)fieldValue; break;
+			case 4: this.simulationSpeed = (System.Nullable<float>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

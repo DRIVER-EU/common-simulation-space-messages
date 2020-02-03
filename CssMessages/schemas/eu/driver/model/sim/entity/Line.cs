@@ -34,7 +34,7 @@ namespace eu.driver.model.sim.entity
 				"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional m" +
 				"ap containing line specific information: key – unique name of the specific prope" +
 				"rty; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\"" +
-				",\"values\":\"string\"}]}],\"_comment\":\"TODO: Include type property into tags?\"}");
+				",\"values\":\"string\"}]}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the line
 		/// </summary>

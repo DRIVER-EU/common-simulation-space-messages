@@ -16,55 +16,47 @@ namespace eu.driver.model.sim.support.aggr
 	public partial class AggrItem : ISpecificRecord
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggrItem\",\"namespace\":\"eu.driver.model.sim.support.aggr\"" +
-				",\"fields\":[{\"name\":\"name\",\"doc\":\"Optional name of the item\",\"default\":null,\"type" +
-				"\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing item specific" +
-				" information: key – unique name of the specific property; value – value of that " +
-				"property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"nam" +
-				"e\":\"location\",\"doc\":\"Optional location of the item\",\"default\":null,\"type\":[\"null" +
-				"\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"" +
-				"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging from [-90, 90] wh" +
-				"ere 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal deg" +
-				"rees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through" +
-				" the geographic north, Greenwich, and the geographic south)\",\"type\":\"double\"},{\"" +
-				"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surface of the WGS84-" +
-				"based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}]},{\"name\":\"orientati" +
-				"on\",\"doc\":\"Optional orientation of the item\",\"default\":null,\"type\":[\"null\",{\"typ" +
-				"e\":\"record\",\"name\":\"Orientation\",\"namespace\":\"eu.driver.model.sim.support\",\"fiel" +
-				"ds\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, ranging from [0, 360) where 0 is p" +
-				"ointing towards the geographic north. The yaw value is applied in a clockwise ro" +
-				"tation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face e" +
-				"ast, while a yaw of 270 makes it face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"do" +
-				"c\":\"In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the l" +
-				"ine between the item’s location and the centre of the WGS84-based ellipsoid. The" +
-				" pitch value is applied in a counter-clockwise rotation over the item’s pitch-ax" +
-				"is. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of" +
-				" -20 makes it face 20 degrees downwards\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"" +
-				"In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the lin" +
-				"e between the item’s location and the centre of the WGS84-based ellipsoid. The r" +
-				"oll value is applied in a clockwise rotation over the item’s roll/bank-axis. A r" +
-				"oll value of 45 makes the item roll 45 degrees to the right, while a roll of -50" +
-				" makes it roll 50 degrees to the left\",\"type\":\"double\"}]}]},{\"name\":\"velocity\",\"" +
-				"doc\":\"Optional velocity of the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"reco" +
-				"rd\",\"name\":\"Velocity\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name" +
-				"\":\"yaw\",\"doc\":\"In decimal degrees, ranging from [0, 360) where 0 is pointing tow" +
-				"ards the geographic north. The yaw value is applied in a clockwise rotation over" +
-				" the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while " +
-				"a yaw of 270 makes it face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In deci" +
-				"mal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between" +
-				" the item’s location and the centre of the WGS84-based ellipsoid. The pitch valu" +
-				"e is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch" +
-				" value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes " +
-				"it face 20 degrees downwards\",\"type\":\"double\"},{\"name\":\"magnitude\",\"doc\":\"In met" +
-				"er per seconds, ranging from [0, infinity) where 0 is standing still relative to" +
-				" the earth’s rotation\",\"type\":\"double\"}]}]}]}");
-		/// <summary>
-		/// Optional name of the item
-		/// </summary>
-		private string _name;
-		/// <summary>
-		/// Optional map containing item specific information: key – unique name of the specific property; value – value of that property
-		/// </summary>
-		private IDictionary<string,System.String> _tags;
+				",\"fields\":[{\"name\":\"location\",\"doc\":\"Optional location of the item\",\"default\":nu" +
+				"ll,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.mode" +
+				"l.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging f" +
+				"rom [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\"" +
+				":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (li" +
+				"ne going through the geographic north, Greenwich, and the geographic south)\",\"ty" +
+				"pe\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surfa" +
+				"ce of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}]},{\"" +
+				"name\":\"orientation\",\"doc\":\"Optional orientation of the item\",\"default\":null,\"typ" +
+				"e\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"namespace\":\"eu.driver.model.si" +
+				"m.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, ranging from [0, 3" +
+				"60) where 0 is pointing towards the geographic north. The yaw value is applied i" +
+				"n a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes" +
+				" the item face east, while a yaw of 270 makes it face west\",\"type\":\"double\"},{\"n" +
+				"ame\":\"pitch\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is perpen" +
+				"dicular to the line between the item’s location and the centre of the WGS84-base" +
+				"d ellipsoid. The pitch value is applied in a counter-clockwise rotation over the" +
+				" item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, " +
+				"while a pitch of -20 makes it face 20 degrees downwards\",\"type\":\"double\"},{\"name" +
+				"\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is perpendi" +
+				"cular to the line between the item’s location and the centre of the WGS84-based " +
+				"ellipsoid. The roll value is applied in a clockwise rotation over the item’s rol" +
+				"l/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, whi" +
+				"le a roll of -50 makes it roll 50 degrees to the left\",\"type\":\"double\"}]}]},{\"na" +
+				"me\":\"velocity\",\"doc\":\"Optional velocity of the item\",\"default\":null,\"type\":[\"nul" +
+				"l\",{\"type\":\"record\",\"name\":\"Velocity\",\"namespace\":\"eu.driver.model.sim.support\"," +
+				"\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, ranging from [0, 360) where 0" +
+				" is pointing towards the geographic north. The yaw value is applied in a clockwi" +
+				"se rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item f" +
+				"ace east, while a yaw of 270 makes it face west\",\"type\":\"double\"},{\"name\":\"pitch" +
+				"\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to " +
+				"the line between the item’s location and the centre of the WGS84-based ellipsoid" +
+				". The pitch value is applied in a counter-clockwise rotation over the item’s pit" +
+				"ch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pit" +
+				"ch of -20 makes it face 20 degrees downwards\",\"type\":\"double\"},{\"name\":\"magnitud" +
+				"e\",\"doc\":\"In meter per seconds, ranging from [0, infinity) where 0 is standing s" +
+				"till relative to the earth’s rotation\",\"type\":\"double\"}]}]},{\"name\":\"name\",\"doc\"" +
+				":\"Optional name of the item\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"t" +
+				"ags\",\"doc\":\"Optional map containing item specific information: key – unique name" +
+				" of the specific property; value – value of that property\",\"default\":null,\"type\"" +
+				":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}");
 		/// <summary>
 		/// Optional location of the item
 		/// </summary>
@@ -77,39 +69,19 @@ namespace eu.driver.model.sim.support.aggr
 		/// Optional velocity of the item
 		/// </summary>
 		private eu.driver.model.sim.support.Velocity _velocity;
+		/// <summary>
+		/// Optional name of the item
+		/// </summary>
+		private string _name;
+		/// <summary>
+		/// Optional map containing item specific information: key – unique name of the specific property; value – value of that property
+		/// </summary>
+		private IDictionary<string,System.String> _tags;
 		public virtual Schema Schema
 		{
 			get
 			{
 				return AggrItem._SCHEMA;
-			}
-		}
-		/// <summary>
-		/// Optional name of the item
-		/// </summary>
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				this._name = value;
-			}
-		}
-		/// <summary>
-		/// Optional map containing item specific information: key – unique name of the specific property; value – value of that property
-		/// </summary>
-		public IDictionary<string,System.String> tags
-		{
-			get
-			{
-				return this._tags;
-			}
-			set
-			{
-				this._tags = value;
 			}
 		}
 		/// <summary>
@@ -154,15 +126,43 @@ namespace eu.driver.model.sim.support.aggr
 				this._velocity = value;
 			}
 		}
+		/// <summary>
+		/// Optional name of the item
+		/// </summary>
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				this._name = value;
+			}
+		}
+		/// <summary>
+		/// Optional map containing item specific information: key – unique name of the specific property; value – value of that property
+		/// </summary>
+		public IDictionary<string,System.String> tags
+		{
+			get
+			{
+				return this._tags;
+			}
+			set
+			{
+				this._tags = value;
+			}
+		}
 		public virtual object Get(int fieldPos)
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.name;
-			case 1: return this.tags;
-			case 2: return this.location;
-			case 3: return this.orientation;
-			case 4: return this.velocity;
+			case 0: return this.location;
+			case 1: return this.orientation;
+			case 2: return this.velocity;
+			case 3: return this.name;
+			case 4: return this.tags;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -170,11 +170,11 @@ namespace eu.driver.model.sim.support.aggr
 		{
 			switch (fieldPos)
 			{
-			case 0: this.name = (System.String)fieldValue; break;
-			case 1: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 2: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
-			case 3: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
-			case 4: this.velocity = (eu.driver.model.sim.support.Velocity)fieldValue; break;
+			case 0: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
+			case 1: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
+			case 2: this.velocity = (eu.driver.model.sim.support.Velocity)fieldValue; break;
+			case 3: this.name = (System.String)fieldValue; break;
+			case 4: this.tags = (IDictionary<string,System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

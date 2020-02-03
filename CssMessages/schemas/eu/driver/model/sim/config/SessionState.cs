@@ -15,7 +15,7 @@ namespace eu.driver.model.sim.config
 	
 	public enum SessionState
 	{
-		Init,
+		Initialisation,
 		Start,
 		Stop,
 		Close,

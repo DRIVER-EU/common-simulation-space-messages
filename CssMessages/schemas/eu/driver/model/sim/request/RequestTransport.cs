@@ -31,15 +31,10 @@ namespace eu.driver.model.sim.request
 				"n (line going through the geographic north, Greenwich, and the geographic south)" +
 				"\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the " +
 				"surface of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}" +
-				"}]},{\"name\":\"response\",\"doc\":\"Optional response of a connected application recei" +
-				"ving this request\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Respon" +
-				"se\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"code\",\"doc\":\"St" +
-				"atus code that best serves the response of the respondent, possibly similar to a" +
-				" HTTP response status code.\",\"type\":\"int\"},{\"name\":\"message\",\"doc\":\"Optional inf" +
-				"ormation accompanying the response code\",\"default\":null,\"type\":[\"null\",\"string\"]" +
-				"},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking th" +
-				"e time the respond was given\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType" +
-				"\":\"timestamp-millis\"}]}]}],\"_comment\":\"\"}");
+				"}]},{\"name\":\"tags\",\"doc\":\"Optional map containing transport request specific inf" +
+				"ormation: key – unique name of the specific property; value – value of that prop" +
+				"erty\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}],\"_commen" +
+				"t\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the request
 		/// </summary>
@@ -61,9 +56,9 @@ namespace eu.driver.model.sim.request
 		/// </summary>
 		private IList<eu.driver.model.sim.support.Location> _route;
 		/// <summary>
-		/// Optional response of a connected application receiving this request
+		/// Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
-		private eu.driver.model.sim.support.Response _response;
+		private IDictionary<string,System.String> _tags;
 		public virtual Schema Schema
 		{
 			get
@@ -142,17 +137,17 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Optional response of a connected application receiving this request
+		/// Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
-		public eu.driver.model.sim.support.Response response
+		public IDictionary<string,System.String> tags
 		{
 			get
 			{
-				return this._response;
+				return this._tags;
 			}
 			set
 			{
-				this._response = value;
+				this._tags = value;
 			}
 		}
 		public virtual object Get(int fieldPos)
@@ -164,7 +159,7 @@ namespace eu.driver.model.sim.request
 			case 2: return this.entity;
 			case 3: return this.destination;
 			case 4: return this.route;
-			case 5: return this.response;
+			case 5: return this.tags;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -177,7 +172,7 @@ namespace eu.driver.model.sim.request
 			case 2: this.entity = (System.String)fieldValue; break;
 			case 3: this.destination = (System.String)fieldValue; break;
 			case 4: this.route = (IList<eu.driver.model.sim.support.Location>)fieldValue; break;
-			case 5: this.response = (eu.driver.model.sim.support.Response)fieldValue; break;
+			case 5: this.tags = (IDictionary<string,System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

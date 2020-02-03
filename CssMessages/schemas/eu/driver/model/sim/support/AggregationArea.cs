@@ -17,28 +17,28 @@ namespace eu.driver.model.sim.support
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregationArea\",\"namespace\":\"eu.driver.model.sim.suppor" +
 				"t\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the aggregation update\",\"t" +
-				"ype\":\"string\"},{\"name\":\"syncMap\",\"doc\":\"Map containing key-value pairs, all with" +
-				" unique keys: key – unique identifier of the area; value – specific aggregated a" +
-				"rea properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrArea\"" +
-				",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"boundary\",\"do" +
-				"c\":\"Optional list of locations, creating an edge between every consecutive locat" +
-				"ion in the list. An additional edge is created between the last location in the " +
-				"list and the first location in the list, closing of the area. The smallest shape" +
-				" created by this boundary defines the area\",\"default\":null,\"type\":[\"null\",{\"type" +
-				"\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.mode" +
-				"l.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging f" +
-				"rom [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\"" +
-				":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (li" +
-				"ne going through the geographic north, Greenwich, and the geographic south)\",\"ty" +
-				"pe\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surfa" +
-				"ce of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}}]},{" +
-				"\"name\":\"name\",\"doc\":\"Optional name of the area\",\"default\":null,\"type\":[\"null\",\"s" +
-				"tring\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing area specific information" +
-				": key – unique name of the specific property; value – value of that property\",\"d" +
-				"efault\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}}},{\"name\":\"time" +
-				"stamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the time the aggr" +
-				"egated update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\"" +
-				":\"timestamp-millis\"}],\"_comment\":\"\"}");
+				"ype\":\"string\"},{\"name\":\"map\",\"doc\":\"Map containing key-value pairs, all with uni" +
+				"que keys: key – unique identifier of the area; value – specific aggregated area " +
+				"properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrArea\",\"na" +
+				"mespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"boundary\",\"doc\":\"" +
+				"Optional list of locations, creating an edge between every consecutive location " +
+				"in the list. An additional edge is created between the last location in the list" +
+				" and the first location in the list, closing of the area. The smallest shape cre" +
+				"ated by this boundary defines the area\",\"default\":null,\"type\":[\"null\",{\"type\":\"a" +
+				"rray\",\"items\":{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.model.si" +
+				"m.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging from " +
+				"[-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In" +
+				" decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line g" +
+				"oing through the geographic north, Greenwich, and the geographic south)\",\"type\":" +
+				"\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surface o" +
+				"f the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}}]},{\"nam" +
+				"e\":\"name\",\"doc\":\"Optional name of the area\",\"default\":null,\"type\":[\"null\",\"strin" +
+				"g\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing area specific information: ke" +
+				"y – unique name of the specific property; value – value of that property\",\"defau" +
+				"lt\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}}},{\"name\":\"timestam" +
+				"p\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the time the aggregat" +
+				"ed update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"ti" +
+				"mestamp-millis\"}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the aggregation update
 		/// </summary>
@@ -46,7 +46,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the area; value – specific aggregated area properties
 		/// </summary>
-		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea> _syncMap;
+		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea> _map;
 		/// <summary>
 		/// Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed
 		/// </summary>
@@ -75,15 +75,15 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the area; value – specific aggregated area properties
 		/// </summary>
-		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea> syncMap
+		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea> map
 		{
 			get
 			{
-				return this._syncMap;
+				return this._map;
 			}
 			set
 			{
-				this._syncMap = value;
+				this._map = value;
 			}
 		}
 		/// <summary>
@@ -105,7 +105,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: return this.id;
-			case 1: return this.syncMap;
+			case 1: return this.map;
 			case 2: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
@@ -115,7 +115,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.syncMap = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea>)fieldValue; break;
+			case 1: this.map = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrArea>)fieldValue; break;
 			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};

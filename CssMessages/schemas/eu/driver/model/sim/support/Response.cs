@@ -15,9 +15,17 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Response : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""code"",""doc"":""Status code that best serves the response of the respondent, possibly similar to a HTTP response status code."",""type"":""int""},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the response"",""type"":""string""},{""name"":""request"",""doc"":""Unique identifier of the request this response is responding to"",""type"":""string""},{""name"":""code"",""doc"":""Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS"",""type"":""int""},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
 		/// <summary>
-		/// Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.
+		/// Unique identifier of the response
+		/// </summary>
+		private string _id;
+		/// <summary>
+		/// Unique identifier of the request this response is responding to
+		/// </summary>
+		private string _request;
+		/// <summary>
+		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
 		/// </summary>
 		private int _code;
 		/// <summary>
@@ -36,7 +44,35 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.
+		/// Unique identifier of the response
+		/// </summary>
+		public string id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				this._id = value;
+			}
+		}
+		/// <summary>
+		/// Unique identifier of the request this response is responding to
+		/// </summary>
+		public string request
+		{
+			get
+			{
+				return this._request;
+			}
+			set
+			{
+				this._request = value;
+			}
+		}
+		/// <summary>
+		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
 		/// </summary>
 		public int code
 		{
@@ -81,9 +117,11 @@ namespace eu.driver.model.sim.support
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.code;
-			case 1: return this.message;
-			case 2: return this.timestamp;
+			case 0: return this.id;
+			case 1: return this.request;
+			case 2: return this.code;
+			case 3: return this.message;
+			case 4: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -91,9 +129,11 @@ namespace eu.driver.model.sim.support
 		{
 			switch (fieldPos)
 			{
-			case 0: this.code = (System.Int32)fieldValue; break;
-			case 1: this.message = (System.String)fieldValue; break;
-			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
+			case 0: this.id = (System.String)fieldValue; break;
+			case 1: this.request = (System.String)fieldValue; break;
+			case 2: this.code = (System.Int32)fieldValue; break;
+			case 3: this.message = (System.String)fieldValue; break;
+			case 4: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

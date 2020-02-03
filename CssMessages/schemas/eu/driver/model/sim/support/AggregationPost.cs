@@ -17,44 +17,40 @@ namespace eu.driver.model.sim.support
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregationPost\",\"namespace\":\"eu.driver.model.sim.suppor" +
 				"t\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the aggregation update\",\"t" +
-				"ype\":\"string\"},{\"name\":\"syncMap\",\"doc\":\"Map containing key-value pairs, all with" +
-				" unique keys: key – unique identifier of the post; value – specific aggregated p" +
-				"ost properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrPost\"" +
-				",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"body\",\"doc\":\"" +
-				"Optional body text of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\"" +
-				":\"header\",\"doc\":\"Optional header information of the post\",\"default\":null,\"type\":" +
-				"[\"null\",{\"type\":\"record\",\"name\":\"Header\",\"namespace\":\"eu.driver.model.sim.suppor" +
-				"t\",\"fields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"type\":\"string\"},{\"name\":" +
-				"\"date\",\"doc\":\"UNIX Epoch time in milliseconds marking the time the post was publ" +
-				"ished/updated\",\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc" +
-				"\":\"Optional list of recipients of the post\",\"default\":null,\"type\":[\"null\",{\"type" +
-				"\":\"array\",\"items\":\"string\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in" +
-				" carbon copy of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":" +
-				"\"string\"}]},{\"name\":\"bcc\",\"doc\":\"Optional list of recipients in blind carbon cop" +
-				"y of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}" +
-				",{\"name\":\"subject\",\"doc\":\"Optional Subject of the post\",\"default\":null,\"type\":[\"" +
-				"null\",\"string\"]},{\"name\":\"intro\",\"doc\":\"Optional introductory text of the post\"," +
-				"\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional l" +
-				"ist of (references to) attachments inside the post\",\"default\":null,\"type\":[\"null" +
-				"\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"location\",\"doc\":\"optional locatio" +
-				"n the post is attached to\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\"" +
-				":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitud" +
-				"e\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the equator\",\"ty" +
-				"pe\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180," +
-				" 180] where 0 is the Prime Meridian (line going through the geographic north, Gr" +
-				"eenwich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"O" +
-				"ptional in meters, where 0 is the surface of the WGS84-based ellipsoid\",\"default" +
-				"\":null,\"type\":[\"null\",\"double\"]}]}]}]}]},{\"name\":\"name\",\"doc\":\"Optional name of " +
-				"the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optiona" +
-				"l map containing post specific information: key – unique name of the specific pr" +
-				"operty; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"m" +
-				"ap\",\"values\":\"string\"}]},{\"name\":\"mediumType\",\"doc\":\"Optional type of the medium" +
-				" the post is published on\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"med" +
-				"iumName\",\"doc\":\"Optional name of the medium the post is published on\",\"default\":" +
-				"null,\"type\":[\"null\",\"string\"]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoc" +
-				"h time in milliseconds marking the time the aggregated update was performed\",\"de" +
-				"fault\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\"" +
-				":\"\"}");
+				"ype\":\"string\"},{\"name\":\"map\",\"doc\":\"Map containing key-value pairs, all with uni" +
+				"que keys: key – unique identifier of the post; value – specific aggregated post " +
+				"properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrPost\",\"na" +
+				"mespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"body\",\"doc\":\"Opti" +
+				"onal body text of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"he" +
+				"ader\",\"doc\":\"Optional header information of the post\",\"default\":null,\"type\":[\"nu" +
+				"ll\",{\"type\":\"record\",\"name\":\"Header\",\"namespace\":\"eu.driver.model.sim.support\",\"" +
+				"fields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"type\":\"string\"},{\"name\":\"dat" +
+				"e\",\"doc\":\"UNIX Epoch time in milliseconds marking the time the post was publishe" +
+				"d/updated\",\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"O" +
+				"ptional list of recipients of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"a" +
+				"rray\",\"items\":\"string\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in car" +
+				"bon copy of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"str" +
+				"ing\"}]},{\"name\":\"bcc\",\"doc\":\"Optional list of recipients in blind carbon copy of" +
+				" the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"n" +
+				"ame\":\"subject\",\"doc\":\"Optional Subject of the post\",\"default\":null,\"type\":[\"null" +
+				"\",\"string\"]},{\"name\":\"intro\",\"doc\":\"Optional introductory text of the post\",\"def" +
+				"ault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional list " +
+				"of (references to) attachments inside the post\",\"default\":null,\"type\":[\"null\",{\"" +
+				"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"location\",\"doc\":\"optional location th" +
+				"e post is attached to\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Lo" +
+				"cation\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"" +
+				"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the equator\",\"type\":" +
+				"\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180" +
+				"] where 0 is the Prime Meridian (line going through the geographic north, Greenw" +
+				"ich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optio" +
+				"nal in meters, where 0 is the surface of the WGS84-based ellipsoid\",\"default\":nu" +
+				"ll,\"type\":[\"null\",\"double\"]}]}]}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the " +
+				"post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional ma" +
+				"p containing post specific information: key – unique name of the specific proper" +
+				"ty; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\"," +
+				"\"values\":\"string\"}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in " +
+				"milliseconds marking the time the aggregated update was performed\",\"default\":nul" +
+				"l,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the aggregation update
 		/// </summary>
@@ -62,7 +58,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the post; value – specific aggregated post properties
 		/// </summary>
-		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost> _syncMap;
+		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost> _map;
 		/// <summary>
 		/// Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed
 		/// </summary>
@@ -91,15 +87,15 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the post; value – specific aggregated post properties
 		/// </summary>
-		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost> syncMap
+		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost> map
 		{
 			get
 			{
-				return this._syncMap;
+				return this._map;
 			}
 			set
 			{
-				this._syncMap = value;
+				this._map = value;
 			}
 		}
 		/// <summary>
@@ -121,7 +117,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: return this.id;
-			case 1: return this.syncMap;
+			case 1: return this.map;
 			case 2: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
@@ -131,7 +127,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.syncMap = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost>)fieldValue; break;
+			case 1: this.map = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrPost>)fieldValue; break;
 			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};

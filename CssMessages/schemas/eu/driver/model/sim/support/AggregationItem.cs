@@ -17,53 +17,53 @@ namespace eu.driver.model.sim.support
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregationItem\",\"namespace\":\"eu.driver.model.sim.suppor" +
 				"t\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the aggregation update\",\"t" +
-				"ype\":\"string\"},{\"name\":\"syncMap\",\"doc\":\"Map containing key-value pairs, all with" +
-				" unique keys: key – unique identifier of the item; value – specific aggregated i" +
-				"tem properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrItem\"" +
-				",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"name\",\"doc\":\"" +
-				"Optional name of the item\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tag" +
-				"s\",\"doc\":\"Optional map containing item specific information: key – unique name o" +
-				"f the specific property; value – value of that property\",\"default\":null,\"type\":[" +
-				"\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name\":\"location\",\"doc\":\"Optional loc" +
-				"ation of the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Locati" +
-				"on\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\"" +
-				":\"In decimal degrees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"dou" +
-				"ble\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] wh" +
-				"ere 0 is the Prime Meridian (line going through the geographic north, Greenwich," +
-				" and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional " +
-				"in meters, where 0 is the surface of the WGS84-based ellipsoid\",\"default\":null,\"" +
-				"type\":[\"null\",\"double\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation o" +
-				"f the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\"," +
-				"\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In deci" +
-				"mal degrees, ranging from [0, 360) where 0 is pointing towards the geographic no" +
-				"rth. The yaw value is applied in a clockwise rotation over the item’s heading/ya" +
-				"w-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it " +
-				"face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging f" +
-				"rom [-90, 90] where 0 is perpendicular to the line between the item’s location a" +
-				"nd the centre of the WGS84-based ellipsoid. The pitch value is applied in a coun" +
-				"ter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the" +
-				" item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees dow" +
-				"nwards\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from " +
-				"(-180, 180] where 0 is perpendicular to the line between the item’s location and" +
-				" the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwi" +
-				"se rotation over the item’s roll/bank-axis. A roll value of 45 makes the item ro" +
-				"ll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the " +
-				"left\",\"type\":\"double\"}]}]},{\"name\":\"velocity\",\"doc\":\"Optional velocity of the it" +
-				"em\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Velocity\",\"namespace\"" +
-				":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees" +
-				", ranging from [0, 360) where 0 is pointing towards the geographic north. The ya" +
-				"w value is applied in a clockwise rotation over the item’s heading/yaw-axis. A y" +
-				"aw value of 90 makes the item face east, while a yaw of 270 makes it face west\"," +
-				"\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from [-90, 9" +
-				"0] where 0 is perpendicular to the line between the item’s location and the cent" +
-				"re of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwi" +
-				"se rotation over the item’s pitch-axis. A pitch value of 45 makes the item face " +
-				"45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards\",\"ty" +
-				"pe\":\"double\"},{\"name\":\"magnitude\",\"doc\":\"In meter per seconds, ranging from [0, " +
-				"infinity) where 0 is standing still relative to the earth’s rotation\",\"type\":\"do" +
-				"uble\"}]}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in millisecon" +
-				"ds marking the time the aggregated update was performed\",\"default\":null,\"type\":[" +
-				"\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\":\"\"}");
+				"ype\":\"string\"},{\"name\":\"map\",\"doc\":\"Map containing key-value pairs, all with uni" +
+				"que keys: key – unique identifier of the item; value – specific aggregated item " +
+				"properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"AggrItem\",\"na" +
+				"mespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"name\":\"location\",\"doc\":\"" +
+				"Optional location of the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"n" +
+				"ame\":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"lat" +
+				"itude\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the equator\"" +
+				",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-" +
+				"180, 180] where 0 is the Prime Meridian (line going through the geographic north" +
+				", Greenwich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc" +
+				"\":\"Optional in meters, where 0 is the surface of the WGS84-based ellipsoid\",\"def" +
+				"ault\":null,\"type\":[\"null\",\"double\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional o" +
+				"rientation of the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"O" +
+				"rientation\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"d" +
+				"oc\":\"In decimal degrees, ranging from [0, 360) where 0 is pointing towards the g" +
+				"eographic north. The yaw value is applied in a clockwise rotation over the item’" +
+				"s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 2" +
+				"70 makes it face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degree" +
+				"s, ranging from [-90, 90] where 0 is perpendicular to the line between the item’" +
+				"s location and the centre of the WGS84-based ellipsoid. The pitch value is appli" +
+				"ed in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of " +
+				"45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20" +
+				" degrees downwards\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, r" +
+				"anging from (-180, 180] where 0 is perpendicular to the line between the item’s " +
+				"location and the centre of the WGS84-based ellipsoid. The roll value is applied " +
+				"in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes" +
+				" the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 deg" +
+				"rees to the left\",\"type\":\"double\"}]}]},{\"name\":\"velocity\",\"doc\":\"Optional veloci" +
+				"ty of the item\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Velocity\"" +
+				",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In dec" +
+				"imal degrees, ranging from [0, 360) where 0 is pointing towards the geographic n" +
+				"orth. The yaw value is applied in a clockwise rotation over the item’s heading/y" +
+				"aw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it" +
+				" face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging " +
+				"from [-90, 90] where 0 is perpendicular to the line between the item’s location " +
+				"and the centre of the WGS84-based ellipsoid. The pitch value is applied in a cou" +
+				"nter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes th" +
+				"e item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees do" +
+				"wnwards\",\"type\":\"double\"},{\"name\":\"magnitude\",\"doc\":\"In meter per seconds, rangi" +
+				"ng from [0, infinity) where 0 is standing still relative to the earth’s rotation" +
+				"\",\"type\":\"double\"}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the item\",\"default" +
+				"\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing i" +
+				"tem specific information: key – unique name of the specific property; value – va" +
+				"lue of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"stri" +
+				"ng\"}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds m" +
+				"arking the time the aggregated update was performed\",\"default\":null,\"type\":[\"nul" +
+				"l\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the aggregation update
 		/// </summary>
@@ -71,7 +71,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the item; value – specific aggregated item properties
 		/// </summary>
-		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem> _syncMap;
+		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem> _map;
 		/// <summary>
 		/// Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed
 		/// </summary>
@@ -100,15 +100,15 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the item; value – specific aggregated item properties
 		/// </summary>
-		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem> syncMap
+		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem> map
 		{
 			get
 			{
-				return this._syncMap;
+				return this._map;
 			}
 			set
 			{
-				this._syncMap = value;
+				this._map = value;
 			}
 		}
 		/// <summary>
@@ -130,7 +130,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: return this.id;
-			case 1: return this.syncMap;
+			case 1: return this.map;
 			case 2: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
@@ -140,7 +140,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.syncMap = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem>)fieldValue; break;
+			case 1: this.map = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrItem>)fieldValue; break;
 			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};

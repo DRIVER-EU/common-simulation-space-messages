@@ -36,8 +36,7 @@ namespace eu.driver.model.sim.entity
 				"med\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"n" +
 				"ame\":\"tags\",\"doc\":\"Optional map containing area specific information: key – uniq" +
 				"ue name of the specific property; value – value of that property\",\"default\":null" +
-				",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}],\"_comment\":\"TODO: Include ty" +
-				"pe property into tags?\"}");
+				",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the area
 		/// </summary>

@@ -15,11 +15,10 @@ namespace eu.driver.model.sim.config
 	
 	public enum TimeState
 	{
-		Start,
-		Pause,
-		Jump,
-		SpeedChange,
-		Resume,
-		Stop,
+		Initialisation,
+		Started,
+		Paused,
+		Stopped,
+		Reset,
 	}
 }

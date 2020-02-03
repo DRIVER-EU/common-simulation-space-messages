@@ -17,52 +17,58 @@ namespace eu.driver.model.sim.support
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregationPOI\",\"namespace\":\"eu.driver.model.sim.support" +
 				"\",\"fields\":[{\"name\":\"id\",\"doc\":\"Unique identifier of the aggregation update\",\"ty" +
-				"pe\":\"string\"},{\"name\":\"syncMap\",\"doc\":\"Map containing key-value pairs, all with " +
-				"unique keys: key – unique identifier of the point-of-interest; value – specific " +
-				"aggregated point-of-interest properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"" +
-				"record\",\"name\":\"AggrPOI\",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\"" +
-				":[{\"name\":\"name\",\"doc\":\"Optional name of the point-of-interest\",\"default\":null,\"" +
-				"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing point-of-" +
-				"interest specific information: key – unique name of the specific property; value" +
-				" – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":" +
-				"\"string\"}]},{\"name\":\"location\",\"doc\":\"Optional location of the point-of-interest" +
-				"\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"" +
-				"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degr" +
-				"ees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"lo" +
-				"ngitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prim" +
-				"e Meridian (line going through the geographic north, Greenwich, and the geograph" +
-				"ic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where " +
-				"0 is the surface of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"do" +
-				"uble\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation of the point-of-in" +
-				"terest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"nam" +
-				"espace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal " +
-				"degrees, ranging from [0, 360) where 0 is pointing towards the geographic north." +
-				" The yaw value is applied in a clockwise rotation over the item’s heading/yaw-ax" +
-				"is. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face" +
-				" west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from " +
-				"[-90, 90] where 0 is perpendicular to the line between the item’s location and t" +
-				"he centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-" +
-				"clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the ite" +
-				"m face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwar" +
-				"ds\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-18" +
-				"0, 180] where 0 is perpendicular to the line between the item’s location and the" +
-				" centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise r" +
-				"otation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 4" +
-				"5 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left" +
-				"\",\"type\":\"double\"}]}]},{\"name\":\"address\",\"doc\":\"Optional address information of " +
-				"the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Ad" +
-				"dress\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"street\",\"doc" +
-				"\":\"Optional street name including house number\",\"default\":null,\"type\":[\"null\",\"s" +
-				"tring\"]},{\"name\":\"postalCode\",\"doc\":\"Optional postal code\",\"default\":null,\"type\"" +
-				":[\"null\",\"string\"]},{\"name\":\"city\",\"doc\":\"Optional name of the city\",\"default\":n" +
-				"ull,\"type\":[\"null\",\"string\"]},{\"name\":\"state\",\"doc\":\"Optional name of the state " +
-				"or province\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"country\",\"doc\":\"O" +
-				"ptional name of the country\",\"default\":null,\"type\":[\"null\",\"string\"]}]}]},{\"name" +
-				"\":\"entities\",\"doc\":\"Optional list of entity identifiers that are at the point-of" +
-				"-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]}]}}}" +
-				",{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the" +
-				" time the aggregated update was performed\",\"default\":null,\"type\":[\"null\",\"long\"]" +
-				",\"logicalType\":\"timestamp-millis\"}],\"_comment\":\"\"}");
+				"pe\":\"string\"},{\"name\":\"map\",\"doc\":\"Map containing key-value pairs, all with uniq" +
+				"ue keys: key – unique identifier of the point-of-interest; value – specific aggr" +
+				"egated point-of-interest properties\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"reco" +
+				"rd\",\"name\":\"AggrPOI\",\"namespace\":\"eu.driver.model.sim.support.aggr\",\"fields\":[{\"" +
+				"name\":\"location\",\"doc\":\"Optional location of the point-of-interest\",\"default\":nu" +
+				"ll,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.mode" +
+				"l.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging f" +
+				"rom [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\"" +
+				":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (li" +
+				"ne going through the geographic north, Greenwich, and the geographic south)\",\"ty" +
+				"pe\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surfa" +
+				"ce of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}]},{\"" +
+				"name\":\"orientation\",\"doc\":\"Optional orientation of the point-of-interest\",\"defau" +
+				"lt\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"namespace\":\"eu.dr" +
+				"iver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, rangi" +
+				"ng from [0, 360) where 0 is pointing towards the geographic north. The yaw value" +
+				" is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw valu" +
+				"e of 90 makes the item face east, while a yaw of 270 makes it face west\",\"type\":" +
+				"\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from [-90, 90] wher" +
+				"e 0 is perpendicular to the line between the item’s location and the centre of t" +
+				"he WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rota" +
+				"tion over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degr" +
+				"ees upwards, while a pitch of -20 makes it face 20 degrees downwards\",\"type\":\"do" +
+				"uble\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where " +
+				"0 is perpendicular to the line between the item’s location and the centre of the" +
+				" WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over t" +
+				"he item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to t" +
+				"he right, while a roll of -50 makes it roll 50 degrees to the left\",\"type\":\"doub" +
+				"le\"}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the point-of-interest\",\"default\"" +
+				":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing po" +
+				"int-of-interest specific information: key – unique name of the specific property" +
+				"; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"v" +
+				"alues\":\"string\"}]},{\"name\":\"description\",\"doc\":\"Optional description of the poin" +
+				"t-of-interest\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"address\",\"doc\":" +
+				"\"Optional address information of the point-of-interest\",\"default\":null,\"type\":[\"" +
+				"null\",{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"eu.driver.model.sim.support" +
+				"\",\"fields\":[{\"name\":\"street\",\"doc\":\"Optional street name\",\"default\":null,\"type\":" +
+				"[\"null\",\"string\"]},{\"name\":\"houseNumber\",\"doc\":\"Optional house number\",\"default\"" +
+				":null,\"type\":[\"null\",\"int\"]},{\"name\":\"houseLetter\",\"doc\":\"Optional house letter\"" +
+				",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"postalCode\",\"doc\":\"Optional p" +
+				"ostal code\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"city\",\"doc\":\"Optio" +
+				"nal name of the city\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"state\",\"" +
+				"doc\":\"Optional name of the state or province\",\"default\":null,\"type\":[\"null\",\"str" +
+				"ing\"]},{\"name\":\"country\",\"doc\":\"Optional name of the country\",\"default\":null,\"ty" +
+				"pe\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing address spe" +
+				"cific information: key – unique name of the specific property; value – value of " +
+				"that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]" +
+				"}]},{\"name\":\"entities\",\"doc\":\"Optional list of entity identifiers that are at th" +
+				"e point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"stri" +
+				"ng\"}]}]}}},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds m" +
+				"arking the time the aggregated update was performed\",\"default\":null,\"type\":[\"nul" +
+				"l\",\"long\"],\"logicalType\":\"timestamp-millis\"}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the aggregation update
 		/// </summary>
@@ -70,7 +76,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the point-of-interest; value – specific aggregated point-of-interest properties
 		/// </summary>
-		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI> _syncMap;
+		private IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI> _map;
 		/// <summary>
 		/// Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed
 		/// </summary>
@@ -99,15 +105,15 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Map containing key-value pairs, all with unique keys: key – unique identifier of the point-of-interest; value – specific aggregated point-of-interest properties
 		/// </summary>
-		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI> syncMap
+		public IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI> map
 		{
 			get
 			{
-				return this._syncMap;
+				return this._map;
 			}
 			set
 			{
-				this._syncMap = value;
+				this._map = value;
 			}
 		}
 		/// <summary>
@@ -129,7 +135,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: return this.id;
-			case 1: return this.syncMap;
+			case 1: return this.map;
 			case 2: return this.timestamp;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
@@ -139,7 +145,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.id = (System.String)fieldValue; break;
-			case 1: this.syncMap = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI>)fieldValue; break;
+			case 1: this.map = (IDictionary<string,eu.driver.model.sim.support.aggr.AggrPOI>)fieldValue; break;
 			case 2: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};

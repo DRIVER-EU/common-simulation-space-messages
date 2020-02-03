@@ -24,45 +24,50 @@ namespace eu.driver.model.sim.entity
 				"ees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through " +
 				"the geographic north, Greenwich, and the geographic south)\",\"type\":\"double\"},{\"n" +
 				"ame\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surface of the WGS84-b" +
-				"ased ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}},{\"name\":\"name\",\"doc\"" +
-				":\"Optional name of the point-of-interest\",\"default\":null,\"type\":[\"null\",\"string\"" +
-				"]},{\"name\":\"type\",\"doc\":\"Optional type of the point-of-interest\",\"default\":null," +
-				"\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique identifier of t" +
-				"he connected application owning the point-of-interest\",\"default\":null,\"type\":[\"n" +
-				"ull\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseco" +
-				"nds marking the time the update was performed\",\"default\":null,\"type\":[\"null\",\"lo" +
-				"ng\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map contai" +
-				"ning point-of-interest specific information: key – unique name of the specific p" +
-				"roperty; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"" +
-				"map\",\"values\":\"string\"}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation of t" +
-				"he point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Ori" +
-				"entation\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc" +
-				"\":\"In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geo" +
-				"graphic north. The yaw value is applied in a clockwise rotation over the item’s " +
-				"heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270" +
-				" makes it face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees," +
-				" ranging from [-90, 90] where 0 is perpendicular to the line between the item’s " +
-				"location and the centre of the WGS84-based ellipsoid. The pitch value is applied" +
-				" in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45" +
-				" makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 d" +
-				"egrees downwards\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ran" +
-				"ging from (-180, 180] where 0 is perpendicular to the line between the item’s lo" +
-				"cation and the centre of the WGS84-based ellipsoid. The roll value is applied in" +
-				" a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes t" +
-				"he item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degre" +
-				"es to the left\",\"type\":\"double\"}]}]},{\"name\":\"address\",\"doc\":\"Optional address i" +
-				"nformation of the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"reco" +
-				"rd\",\"name\":\"Address\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\"" +
-				":\"street\",\"doc\":\"Optional street name including house number\",\"default\":null,\"ty" +
-				"pe\":[\"null\",\"string\"]},{\"name\":\"postalCode\",\"doc\":\"Optional postal code\",\"defaul" +
-				"t\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"city\",\"doc\":\"Optional name of the cit" +
-				"y\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"state\",\"doc\":\"Optional name" +
-				" of the state or province\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"cou" +
-				"ntry\",\"doc\":\"Optional name of the country\",\"default\":null,\"type\":[\"null\",\"string" +
-				"\"]}]}]},{\"name\":\"entities\",\"doc\":\"Optional list of entity identifiers that are a" +
-				"t the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"" +
-				"string\"}]}],\"_comment\":\"TODO: Include type property into tags? Do we need entiti" +
-				"es property?\"}");
+				"ased ellipsoid\",\"default\":null,\"type\":[\"null\",\"double\"]}]}},{\"name\":\"orientation" +
+				"\",\"doc\":\"Optional orientation of the point-of-interest\",\"default\":null,\"type\":[\"" +
+				"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"namespace\":\"eu.driver.model.sim.sup" +
+				"port\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal degrees, ranging from [0, 360) w" +
+				"here 0 is pointing towards the geographic north. The yaw value is applied in a c" +
+				"lockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the " +
+				"item face east, while a yaw of 270 makes it face west\",\"type\":\"double\"},{\"name\":" +
+				"\"pitch\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is perpendicul" +
+				"ar to the line between the item’s location and the centre of the WGS84-based ell" +
+				"ipsoid. The pitch value is applied in a counter-clockwise rotation over the item" +
+				"’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while" +
+				" a pitch of -20 makes it face 20 degrees downwards\",\"type\":\"double\"},{\"name\":\"ro" +
+				"ll\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is perpendicular" +
+				" to the line between the item’s location and the centre of the WGS84-based ellip" +
+				"soid. The roll value is applied in a clockwise rotation over the item’s roll/ban" +
+				"k-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a " +
+				"roll of -50 makes it roll 50 degrees to the left\",\"type\":\"double\"}]}]},{\"name\":\"" +
+				"name\",\"doc\":\"Optional name of the point-of-interest\",\"default\":null,\"type\":[\"nul" +
+				"l\",\"string\"]},{\"name\":\"type\",\"doc\":\"Optional type of the point-of-interest\",\"def" +
+				"ault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique iden" +
+				"tifier of the connected application owning the point-of-interest\",\"default\":null" +
+				",\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time i" +
+				"n milliseconds marking the time the update was performed\",\"default\":null,\"type\":" +
+				"[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional" +
+				" map containing point-of-interest specific information: key – unique name of the" +
+				" specific property; value – value of that property\",\"default\":null,\"type\":[\"null" +
+				"\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name\":\"description\",\"doc\":\"Optional descr" +
+				"iption of the point-of-interest\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name" +
+				"\":\"address\",\"doc\":\"Optional address information of the point-of-interest\",\"defau" +
+				"lt\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"eu.driver" +
+				".model.sim.support\",\"fields\":[{\"name\":\"street\",\"doc\":\"Optional street name\",\"def" +
+				"ault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"houseNumber\",\"doc\":\"Optional house" +
+				" number\",\"default\":null,\"type\":[\"null\",\"int\"]},{\"name\":\"houseLetter\",\"doc\":\"Opti" +
+				"onal house letter\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"postalCode\"" +
+				",\"doc\":\"Optional postal code\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"" +
+				"city\",\"doc\":\"Optional name of the city\",\"default\":null,\"type\":[\"null\",\"string\"]}" +
+				",{\"name\":\"state\",\"doc\":\"Optional name of the state or province\",\"default\":null,\"" +
+				"type\":[\"null\",\"string\"]},{\"name\":\"country\",\"doc\":\"Optional name of the country\"," +
+				"\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map cont" +
+				"aining address specific information: key – unique name of the specific property;" +
+				" value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"va" +
+				"lues\":\"string\"}]}]}]},{\"name\":\"entities\",\"doc\":\"Optional list of entity identifi" +
+				"ers that are at the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"ar" +
+				"ray\",\"items\":\"string\"}]}],\"_comment\":\"\"}");
 		/// <summary>
 		/// Unique identifier of the point-of-interest
 		/// </summary>
@@ -71,6 +76,10 @@ namespace eu.driver.model.sim.entity
 		/// Location of the point-of-interest
 		/// </summary>
 		private eu.driver.model.sim.support.Location _location;
+		/// <summary>
+		/// Optional orientation of the point-of-interest
+		/// </summary>
+		private eu.driver.model.sim.support.Orientation _orientation;
 		/// <summary>
 		/// Optional name of the point-of-interest
 		/// </summary>
@@ -92,9 +101,9 @@ namespace eu.driver.model.sim.entity
 		/// </summary>
 		private IDictionary<string,System.String> _tags;
 		/// <summary>
-		/// Optional orientation of the point-of-interest
+		/// Optional description of the point-of-interest
 		/// </summary>
-		private eu.driver.model.sim.support.Orientation _orientation;
+		private string _description;
 		/// <summary>
 		/// Optional address information of the point-of-interest
 		/// </summary>
@@ -136,6 +145,20 @@ namespace eu.driver.model.sim.entity
 			set
 			{
 				this._location = value;
+			}
+		}
+		/// <summary>
+		/// Optional orientation of the point-of-interest
+		/// </summary>
+		public eu.driver.model.sim.support.Orientation orientation
+		{
+			get
+			{
+				return this._orientation;
+			}
+			set
+			{
+				this._orientation = value;
 			}
 		}
 		/// <summary>
@@ -209,17 +232,17 @@ namespace eu.driver.model.sim.entity
 			}
 		}
 		/// <summary>
-		/// Optional orientation of the point-of-interest
+		/// Optional description of the point-of-interest
 		/// </summary>
-		public eu.driver.model.sim.support.Orientation orientation
+		public string description
 		{
 			get
 			{
-				return this._orientation;
+				return this._description;
 			}
 			set
 			{
-				this._orientation = value;
+				this._description = value;
 			}
 		}
 		/// <summary>
@@ -256,14 +279,15 @@ namespace eu.driver.model.sim.entity
 			{
 			case 0: return this.id;
 			case 1: return this.location;
-			case 2: return this.name;
-			case 3: return this.type;
-			case 4: return this.owner;
-			case 5: return this.timestamp;
-			case 6: return this.tags;
-			case 7: return this.orientation;
-			case 8: return this.address;
-			case 9: return this.entities;
+			case 2: return this.orientation;
+			case 3: return this.name;
+			case 4: return this.type;
+			case 5: return this.owner;
+			case 6: return this.timestamp;
+			case 7: return this.tags;
+			case 8: return this.description;
+			case 9: return this.address;
+			case 10: return this.entities;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -273,14 +297,15 @@ namespace eu.driver.model.sim.entity
 			{
 			case 0: this.id = (System.String)fieldValue; break;
 			case 1: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
-			case 2: this.name = (System.String)fieldValue; break;
-			case 3: this.type = (System.String)fieldValue; break;
-			case 4: this.owner = (System.String)fieldValue; break;
-			case 5: this.timestamp = (System.Nullable<long>)fieldValue; break;
-			case 6: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 7: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
-			case 8: this.address = (eu.driver.model.sim.support.Address)fieldValue; break;
-			case 9: this.entities = (IList<System.String>)fieldValue; break;
+			case 2: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
+			case 3: this.name = (System.String)fieldValue; break;
+			case 4: this.type = (System.String)fieldValue; break;
+			case 5: this.owner = (System.String)fieldValue; break;
+			case 6: this.timestamp = (System.Nullable<long>)fieldValue; break;
+			case 7: this.tags = (IDictionary<string,System.String>)fieldValue; break;
+			case 8: this.description = (System.String)fieldValue; break;
+			case 9: this.address = (eu.driver.model.sim.support.Address)fieldValue; break;
+			case 10: this.entities = (IList<System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

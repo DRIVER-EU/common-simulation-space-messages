@@ -16,46 +16,60 @@ namespace eu.driver.model.sim.support.aggr
 	public partial class AggrPOI : ISpecificRecord
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggrPOI\",\"namespace\":\"eu.driver.model.sim.support.aggr\"," +
-				"\"fields\":[{\"name\":\"name\",\"doc\":\"Optional name of the point-of-interest\",\"default" +
-				"\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing p" +
-				"oint-of-interest specific information: key – unique name of the specific propert" +
-				"y; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"" +
-				"values\":\"string\"}]},{\"name\":\"location\",\"doc\":\"Optional location of the point-of-" +
-				"interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"name" +
-				"space\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In deci" +
-				"mal degrees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"n" +
-				"ame\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is " +
-				"the Prime Meridian (line going through the geographic north, Greenwich, and the " +
-				"geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters" +
-				", where 0 is the surface of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"n" +
-				"ull\",\"double\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation of the poi" +
-				"nt-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientati" +
-				"on\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In " +
-				"decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographi" +
-				"c north. The yaw value is applied in a clockwise rotation over the item’s headin" +
-				"g/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes" +
-				" it face west\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, rangi" +
-				"ng from [-90, 90] where 0 is perpendicular to the line between the item’s locati" +
-				"on and the centre of the WGS84-based ellipsoid. The pitch value is applied in a " +
-				"counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes" +
-				" the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees" +
-				" downwards\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging f" +
-				"rom (-180, 180] where 0 is perpendicular to the line between the item’s location" +
-				" and the centre of the WGS84-based ellipsoid. The roll value is applied in a clo" +
-				"ckwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the ite" +
-				"m roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to " +
-				"the left\",\"type\":\"double\"}]}]},{\"name\":\"address\",\"doc\":\"Optional address informa" +
-				"tion of the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"n" +
-				"ame\":\"Address\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"stre" +
-				"et\",\"doc\":\"Optional street name including house number\",\"default\":null,\"type\":[\"" +
-				"null\",\"string\"]},{\"name\":\"postalCode\",\"doc\":\"Optional postal code\",\"default\":nul" +
-				"l,\"type\":[\"null\",\"string\"]},{\"name\":\"city\",\"doc\":\"Optional name of the city\",\"de" +
-				"fault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"state\",\"doc\":\"Optional name of th" +
-				"e state or province\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"country\"," +
-				"\"doc\":\"Optional name of the country\",\"default\":null,\"type\":[\"null\",\"string\"]}]}]" +
-				"},{\"name\":\"entities\",\"doc\":\"Optional list of entity identifiers that are at the " +
-				"point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string" +
-				"\"}]}]}");
+				"\"fields\":[{\"name\":\"location\",\"doc\":\"Optional location of the point-of-interest\"," +
+				"\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu" +
+				".driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degree" +
+				"s, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"long" +
+				"itude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prime " +
+				"Meridian (line going through the geographic north, Greenwich, and the geographic" +
+				" south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 " +
+				"is the surface of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\",\"doub" +
+				"le\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional orientation of the point-of-inte" +
+				"rest\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Orientation\",\"names" +
+				"pace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"yaw\",\"doc\":\"In decimal de" +
+				"grees, ranging from [0, 360) where 0 is pointing towards the geographic north. T" +
+				"he yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis" +
+				". A yaw value of 90 makes the item face east, while a yaw of 270 makes it face w" +
+				"est\",\"type\":\"double\"},{\"name\":\"pitch\",\"doc\":\"In decimal degrees, ranging from [-" +
+				"90, 90] where 0 is perpendicular to the line between the item’s location and the" +
+				" centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-cl" +
+				"ockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item " +
+				"face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards" +
+				"\",\"type\":\"double\"},{\"name\":\"roll\",\"doc\":\"In decimal degrees, ranging from (-180," +
+				" 180] where 0 is perpendicular to the line between the item’s location and the c" +
+				"entre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rot" +
+				"ation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 " +
+				"degrees to the right, while a roll of -50 makes it roll 50 degrees to the left\"," +
+				"\"type\":\"double\"}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the point-of-interes" +
+				"t\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map c" +
+				"ontaining point-of-interest specific information: key – unique name of the speci" +
+				"fic property; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"ty" +
+				"pe\":\"map\",\"values\":\"string\"}]},{\"name\":\"description\",\"doc\":\"Optional description" +
+				" of the point-of-interest\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"add" +
+				"ress\",\"doc\":\"Optional address information of the point-of-interest\",\"default\":nu" +
+				"ll,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"eu.driver.model" +
+				".sim.support\",\"fields\":[{\"name\":\"street\",\"doc\":\"Optional street name\",\"default\":" +
+				"null,\"type\":[\"null\",\"string\"]},{\"name\":\"houseNumber\",\"doc\":\"Optional house numbe" +
+				"r\",\"default\":null,\"type\":[\"null\",\"int\"]},{\"name\":\"houseLetter\",\"doc\":\"Optional h" +
+				"ouse letter\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"postalCode\",\"doc\"" +
+				":\"Optional postal code\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"city\"," +
+				"\"doc\":\"Optional name of the city\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"nam" +
+				"e\":\"state\",\"doc\":\"Optional name of the state or province\",\"default\":null,\"type\":" +
+				"[\"null\",\"string\"]},{\"name\":\"country\",\"doc\":\"Optional name of the country\",\"defau" +
+				"lt\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing" +
+				" address specific information: key – unique name of the specific property; value" +
+				" – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":" +
+				"\"string\"}]}]}]},{\"name\":\"entities\",\"doc\":\"Optional list of entity identifiers th" +
+				"at are at the point-of-interest\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"" +
+				"items\":\"string\"}]}]}");
+		/// <summary>
+		/// Optional location of the point-of-interest
+		/// </summary>
+		private eu.driver.model.sim.support.Location _location;
+		/// <summary>
+		/// Optional orientation of the point-of-interest
+		/// </summary>
+		private eu.driver.model.sim.support.Orientation _orientation;
 		/// <summary>
 		/// Optional name of the point-of-interest
 		/// </summary>
@@ -65,13 +79,9 @@ namespace eu.driver.model.sim.support.aggr
 		/// </summary>
 		private IDictionary<string,System.String> _tags;
 		/// <summary>
-		/// Optional location of the point-of-interest
+		/// Optional description of the point-of-interest
 		/// </summary>
-		private eu.driver.model.sim.support.Location _location;
-		/// <summary>
-		/// Optional orientation of the point-of-interest
-		/// </summary>
-		private eu.driver.model.sim.support.Orientation _orientation;
+		private string _description;
 		/// <summary>
 		/// Optional address information of the point-of-interest
 		/// </summary>
@@ -85,6 +95,34 @@ namespace eu.driver.model.sim.support.aggr
 			get
 			{
 				return AggrPOI._SCHEMA;
+			}
+		}
+		/// <summary>
+		/// Optional location of the point-of-interest
+		/// </summary>
+		public eu.driver.model.sim.support.Location location
+		{
+			get
+			{
+				return this._location;
+			}
+			set
+			{
+				this._location = value;
+			}
+		}
+		/// <summary>
+		/// Optional orientation of the point-of-interest
+		/// </summary>
+		public eu.driver.model.sim.support.Orientation orientation
+		{
+			get
+			{
+				return this._orientation;
+			}
+			set
+			{
+				this._orientation = value;
 			}
 		}
 		/// <summary>
@@ -116,31 +154,17 @@ namespace eu.driver.model.sim.support.aggr
 			}
 		}
 		/// <summary>
-		/// Optional location of the point-of-interest
+		/// Optional description of the point-of-interest
 		/// </summary>
-		public eu.driver.model.sim.support.Location location
+		public string description
 		{
 			get
 			{
-				return this._location;
+				return this._description;
 			}
 			set
 			{
-				this._location = value;
-			}
-		}
-		/// <summary>
-		/// Optional orientation of the point-of-interest
-		/// </summary>
-		public eu.driver.model.sim.support.Orientation orientation
-		{
-			get
-			{
-				return this._orientation;
-			}
-			set
-			{
-				this._orientation = value;
+				this._description = value;
 			}
 		}
 		/// <summary>
@@ -175,12 +199,13 @@ namespace eu.driver.model.sim.support.aggr
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.name;
-			case 1: return this.tags;
-			case 2: return this.location;
-			case 3: return this.orientation;
-			case 4: return this.address;
-			case 5: return this.entities;
+			case 0: return this.location;
+			case 1: return this.orientation;
+			case 2: return this.name;
+			case 3: return this.tags;
+			case 4: return this.description;
+			case 5: return this.address;
+			case 6: return this.entities;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -188,12 +213,13 @@ namespace eu.driver.model.sim.support.aggr
 		{
 			switch (fieldPos)
 			{
-			case 0: this.name = (System.String)fieldValue; break;
-			case 1: this.tags = (IDictionary<string,System.String>)fieldValue; break;
-			case 2: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
-			case 3: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
-			case 4: this.address = (eu.driver.model.sim.support.Address)fieldValue; break;
-			case 5: this.entities = (IList<System.String>)fieldValue; break;
+			case 0: this.location = (eu.driver.model.sim.support.Location)fieldValue; break;
+			case 1: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
+			case 2: this.name = (System.String)fieldValue; break;
+			case 3: this.tags = (IDictionary<string,System.String>)fieldValue; break;
+			case 4: this.description = (System.String)fieldValue; break;
+			case 5: this.address = (eu.driver.model.sim.support.Address)fieldValue; break;
+			case 6: this.entities = (IList<System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}
