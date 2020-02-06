@@ -15,7 +15,7 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Response : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the response"",""type"":""string""},{""name"":""request"",""doc"":""Unique identifier of the request this response is responding to"",""type"":""string""},{""name"":""code"",""doc"":""Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS"",""type"":""int""},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the response"",""type"":""string""},{""name"":""request"",""doc"":""Unique identifier of the request this response is responding to"",""type"":""string""},{""name"":""code"",""doc"":""Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS"",""default"":null,""type"":[""null"",""int""]},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
 		/// <summary>
 		/// Unique identifier of the response
 		/// </summary>
@@ -27,7 +27,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
 		/// </summary>
-		private int _code;
+		private System.Nullable<int> _code;
 		/// <summary>
 		/// Optional information accompanying the response code
 		/// </summary>
@@ -74,7 +74,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
 		/// </summary>
-		public int code
+		public System.Nullable<int> code
 		{
 			get
 			{
@@ -131,7 +131,7 @@ namespace eu.driver.model.sim.support
 			{
 			case 0: this.id = (System.String)fieldValue; break;
 			case 1: this.request = (System.String)fieldValue; break;
-			case 2: this.code = (System.Int32)fieldValue; break;
+			case 2: this.code = (System.Nullable<int>)fieldValue; break;
 			case 3: this.message = (System.String)fieldValue; break;
 			case 4: this.timestamp = (System.Nullable<long>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
