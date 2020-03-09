@@ -97,27 +97,6 @@
     <Compile Include="schemas\eu\driver\model\sim\support\Velocity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\avro-schemas\simulation_aggr_area-value.avsc" />
-    <None Include="data\avro-schemas\simulation_aggr_item-value.avsc" />
-    <None Include="data\avro-schemas\simulation_aggr_line-value.avsc" />
-    <None Include="data\avro-schemas\simulation_aggr_poi-value.avsc" />
-    <None Include="data\avro-schemas\simulation_aggr_post-value.avsc" />
-    <None Include="data\avro-schemas\simulation_aggr_unit-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_area-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_deleted-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_item-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_line-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_poi-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_post-value.avsc" />
-    <None Include="data\avro-schemas\simulation_entity_unit-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_aoi-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_cancelled-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_information-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_ownership-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_startinject-value.avsc" />
-    <None Include="data\avro-schemas\simulation_request_transport-value.avsc" />
-    <None Include="data\avro-schemas\simulation_session_mgmt-value.avsc" />
-    <None Include="data\avro-schemas\simulation_time_mgmt-value.avsc" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
