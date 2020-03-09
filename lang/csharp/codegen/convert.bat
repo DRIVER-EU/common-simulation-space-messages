@@ -8,4 +8,5 @@ cd ..\..\..\data\avro-schemas
 for /R %%f in (*.avsc) do (
 ..\..\lang\csharp\codegen\avrogen.exe -s %%f ..\..\lang\csharp\CssMessages\schemas
 )
+
 @pause
