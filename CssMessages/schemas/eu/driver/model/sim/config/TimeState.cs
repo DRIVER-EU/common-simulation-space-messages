@@ -15,7 +15,7 @@ namespace eu.driver.model.sim.config
 	
 	public enum TimeState
 	{
-		Initialisation,
+		Initialization,
 		Started,
 		Paused,
 		Stopped,

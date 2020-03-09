@@ -15,17 +15,17 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Orientation : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Orientation"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""yaw"",""doc"":""In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west"",""type"":""double""},{""name"":""pitch"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards"",""type"":""double""},{""name"":""roll"",""doc"":""In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left"",""type"":""double""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Orientation"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""yaw"",""doc"":""In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west"",""type"":""double""},{""name"":""pitch"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards"",""type"":""double""},{""name"":""roll"",""doc"":""In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left"",""type"":""double""}]}");
 		/// <summary>
 		/// In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west
 		/// </summary>
 		private double _yaw;
 		/// <summary>
-		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
+		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
 		/// </summary>
 		private double _pitch;
 		/// <summary>
-		/// In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left
+		/// In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left
 		/// </summary>
 		private double _roll;
 		public virtual Schema Schema
@@ -50,7 +50,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
+		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
 		/// </summary>
 		public double pitch
 		{
@@ -64,7 +64,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left
+		/// In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left
 		/// </summary>
 		public double roll
 		{

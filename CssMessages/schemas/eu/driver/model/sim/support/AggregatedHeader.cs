@@ -13,37 +13,38 @@ namespace eu.driver.model.sim.support
 	using Avro;
 	using Avro.Specific;
 	
-	public partial class Header : ISpecificRecord
+	public partial class AggregatedHeader : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"Header\",\"namespace\":\"eu.driver.model.sim.support\",\"field" +
-				"s\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"type\":\"string\"},{\"name\":\"date\",\"d" +
-				"oc\":\"UNIX Epoch time in milliseconds marking the time the post was published/upd" +
-				"ated\",\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Option" +
-				"al list of recipients of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\"" +
-				",\"items\":\"string\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in carbon c" +
-				"opy of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}" +
-				"]},{\"name\":\"bcc\",\"doc\":\"Optional list of recipients in blind carbon copy of the " +
-				"post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":" +
-				"\"subject\",\"doc\":\"Optional subject of the post\",\"default\":null,\"type\":[\"null\",\"st" +
-				"ring\"]},{\"name\":\"intro\",\"doc\":\"Optional introductory text of the post\",\"default\"" +
-				":null,\"type\":[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional map of (re" +
-				"ferences to) attachments inside the post: key – unique reference to the attachme" +
-				"nt (e.g. URI) or complete string-encoded attachment; value – media type of the a" +
-				"ttachment (e.g. .pdf, .png, .zip)\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"" +
-				"values\":\"string\"}]},{\"name\":\"location\",\"doc\":\"Optional location of the sender of" +
-				" the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"nam" +
-				"espace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In dec" +
-				"imal degrees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"" +
-				"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is" +
-				" the Prime Meridian (line going through the geographic north, Greenwich, and the" +
-				" geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meter" +
-				"s, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon c" +
-				"ommon ground level (specified inside the configuration guidelines). A positive n" +
-				"umber indicates a location outside the ellipsoid (or above the ground level), wh" +
-				"ile a negative number indicates a location inside the ellipsoid (or below the gr" +
-				"ound level). If an altitude is not provided, it is presumed that the location is" +
-				" at the ground level of the provided latitude and longitude coordinates\",\"defaul" +
-				"t\":null,\"type\":[\"null\",\"double\"]}]}]}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"AggregatedHeader\",\"namespace\":\"eu.driver.model.sim.suppo" +
+				"rt\",\"fields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"default\":null,\"type\":[\"" +
+				"null\",\"string\"]},{\"name\":\"date\",\"doc\":\"UNIX Epoch time in milliseconds marking t" +
+				"he time the post was published/updated\",\"default\":null,\"type\":[\"null\",\"long\"],\"l" +
+				"ogicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Optional list of recipients " +
+				"of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{" +
+				"\"name\":\"cc\",\"doc\":\"Optional list of recipients in carbon copy of the post\",\"defa" +
+				"ult\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"bcc\",\"doc\"" +
+				":\"Optional list of recipients in blind carbon copy of the post\",\"default\":null,\"" +
+				"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"subject\",\"doc\":\"Optio" +
+				"nal subject of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"intro" +
+				"\",\"doc\":\"Optional introductory text of the post\",\"default\":null,\"type\":[\"null\",\"" +
+				"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional map of (references to) attachmen" +
+				"ts inside the post: key – unique reference to the attachment (e.g. URI) or compl" +
+				"ete string-encoded attachment; value – media type of the attachment (e.g. .pdf, " +
+				".png, .zip)\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"" +
+				"name\":\"location\",\"doc\":\"Optional location of the sender of the post\",\"default\":n" +
+				"ull,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace\":\"eu.driver.mod" +
+				"el.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal degrees, ranging " +
+				"from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":\"longitude\",\"doc" +
+				"\":\"In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (l" +
+				"ine going through the geographic north, Greenwich, and the geographic south)\",\"t" +
+				"ype\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, where 0 is the surf" +
+				"ace of the WGS84-based ellipsoid, or another agreed upon common ground level (sp" +
+				"ecified inside the configuration guidelines). A positive number indicates a loca" +
+				"tion outside the ellipsoid (or above the ground level), while a negative number " +
+				"indicates a location inside the ellipsoid (or below the ground level). If an alt" +
+				"itude is not provided, it is presumed that the location is at the ground level o" +
+				"f the provided latitude and longitude coordinates\",\"default\":null,\"type\":[\"null\"" +
+				",\"double\"]}]}]}]}");
 		/// <summary>
 		/// Sender of the post
 		/// </summary>
@@ -51,7 +52,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// UNIX Epoch time in milliseconds marking the time the post was published/updated
 		/// </summary>
-		private long _date;
+		private System.Nullable<long> _date;
 		/// <summary>
 		/// Optional list of recipients of the post
 		/// </summary>
@@ -84,7 +85,7 @@ namespace eu.driver.model.sim.support
 		{
 			get
 			{
-				return Header._SCHEMA;
+				return AggregatedHeader._SCHEMA;
 			}
 		}
 		/// <summary>
@@ -104,7 +105,7 @@ namespace eu.driver.model.sim.support
 		/// <summary>
 		/// UNIX Epoch time in milliseconds marking the time the post was published/updated
 		/// </summary>
-		public long date
+		public System.Nullable<long> date
 		{
 			get
 			{
@@ -234,7 +235,7 @@ namespace eu.driver.model.sim.support
 			switch (fieldPos)
 			{
 			case 0: this.from = (System.String)fieldValue; break;
-			case 1: this.date = (System.Int64)fieldValue; break;
+			case 1: this.date = (System.Nullable<long>)fieldValue; break;
 			case 2: this.to = (IList<System.String>)fieldValue; break;
 			case 3: this.cc = (IList<System.String>)fieldValue; break;
 			case 4: this.bcc = (IList<System.String>)fieldValue; break;

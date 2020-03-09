@@ -15,13 +15,13 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Velocity : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Velocity"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""yaw"",""doc"":""In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west"",""type"":""double""},{""name"":""pitch"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards"",""type"":""double""},{""name"":""magnitude"",""doc"":""In meter per seconds, ranging from [0, infinity) where 0 is standing still relative to the earth’s rotation"",""type"":""double""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Velocity"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""yaw"",""doc"":""In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west"",""type"":""double""},{""name"":""pitch"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards"",""type"":""double""},{""name"":""magnitude"",""doc"":""In meter per seconds, ranging from [0, infinity) where 0 is standing still relative to the earth’s rotation"",""type"":""double""}]}");
 		/// <summary>
 		/// In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west
 		/// </summary>
 		private double _yaw;
 		/// <summary>
-		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
+		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
 		/// </summary>
 		private double _pitch;
 		/// <summary>
@@ -50,7 +50,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
+		/// In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards
 		/// </summary>
 		public double pitch
 		{

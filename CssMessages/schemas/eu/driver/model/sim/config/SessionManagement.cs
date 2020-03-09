@@ -15,13 +15,13 @@ namespace eu.driver.model.sim.config
 	
 	public partial class SessionManagement : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""SessionManagement"",""namespace"":""eu.driver.model.sim.config"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the session"",""type"":""string""},{""name"":""state"",""doc"":""state the session is currently in"",""type"":{""type"":""enum"",""name"":""SessionState"",""namespace"":""eu.driver.model.sim.config"",""symbols"":[""Initialisation"",""Start"",""Stop"",""Close""]}},{""name"":""name"",""doc"":""Optional name of the session"",""default"":null,""type"":[""null"",""string""]},{""name"":""tags"",""doc"":""Optional map containing session specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the update was or needs to be performed"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""},{""name"":""simulationTime"",""doc"":""Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}],""_comment"":""""}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""SessionManagement"",""namespace"":""eu.driver.model.sim.config"",""fields"":[{""name"":""id"",""doc"":""Unique case-insensitive identifier of the session"",""type"":""string""},{""name"":""state"",""doc"":""State the session is currently in"",""type"":{""type"":""enum"",""name"":""SessionState"",""namespace"":""eu.driver.model.sim.config"",""symbols"":[""Initializing"",""Started"",""Stopped"",""Closed""]}},{""name"":""name"",""doc"":""Optional name of the session"",""default"":null,""type"":[""null"",""string""]},{""name"":""tags"",""doc"":""Optional map containing session specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the update was or needs to be performed"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""},{""name"":""simulationTime"",""doc"":""Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
 		/// <summary>
-		/// Unique identifier of the session
+		/// Unique case-insensitive identifier of the session
 		/// </summary>
 		private string _id;
 		/// <summary>
-		/// state the session is currently in
+		/// State the session is currently in
 		/// </summary>
 		private eu.driver.model.sim.config.SessionState _state;
 		/// <summary>
@@ -48,7 +48,7 @@ namespace eu.driver.model.sim.config
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the session
+		/// Unique case-insensitive identifier of the session
 		/// </summary>
 		public string id
 		{
@@ -62,7 +62,7 @@ namespace eu.driver.model.sim.config
 			}
 		}
 		/// <summary>
-		/// state the session is currently in
+		/// State the session is currently in
 		/// </summary>
 		public eu.driver.model.sim.config.SessionState state
 		{

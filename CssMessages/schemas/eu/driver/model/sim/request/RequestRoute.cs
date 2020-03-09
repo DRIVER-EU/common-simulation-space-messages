@@ -15,13 +15,37 @@ namespace eu.driver.model.sim.request
 	
 	public partial class RequestRoute : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""RequestRoute"",""namespace"":""eu.driver.model.sim.request"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the request"",""type"":""string""},{""name"":""applicant"",""doc"":""Unique identifier of the connected application sending the request"",""type"":""string""},{""name"":""start"",""doc"":""Location that marks the start of the route"",""type"":{""type"":""record"",""name"":""Location"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""latitude"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is the equator"",""type"":""double""},{""name"":""longitude"",""doc"":""In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)"",""type"":""double""},{""name"":""altitude"",""doc"":""Optional in meters, where 0 is the surface of the WGS84-based ellipsoid"",""default"":null,""type"":[""null"",""double""]}]}},{""name"":""end"",""doc"":""Location that marks the end of the route"",""type"":""eu.driver.model.sim.support.Location""},{""name"":""tags"",""doc"":""Optional map containing route request specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]}],""_comment"":""""}");
+		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"RequestRoute\",\"namespace\":\"eu.driver.model.sim.request\"," +
+				"\"fields\":[{\"name\":\"id\",\"doc\":\"Unique case-insensitive identifier of the request\"" +
+				",\"type\":\"string\"},{\"name\":\"applicant\",\"doc\":\"Unique case-insensitive identifier " +
+				"of the connected application sending the request\",\"type\":\"string\"},{\"name\":\"star" +
+				"t\",\"doc\":\"Location that marks the start of the route\",\"type\":{\"type\":\"record\",\"n" +
+				"ame\":\"Location\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"lat" +
+				"itude\",\"doc\":\"In decimal degrees, ranging from [-90, 90] where 0 is the equator\"" +
+				",\"type\":\"double\"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-" +
+				"180, 180] where 0 is the Prime Meridian (line going through the geographic north" +
+				", Greenwich, and the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc" +
+				"\":\"Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or a" +
+				"nother agreed upon common ground level (specified inside the configuration guide" +
+				"lines). A positive number indicates a location outside the ellipsoid (or above t" +
+				"he ground level), while a negative number indicates a location inside the ellips" +
+				"oid (or below the ground level). If an altitude is not provided, it is presumed " +
+				"that the location is at the ground level of the provided latitude and longitude " +
+				"coordinates\",\"default\":null,\"type\":[\"null\",\"double\"]}]}},{\"name\":\"waypoints\",\"do" +
+				"c\":\"Ordered list of locations to visit consecutively\",\"type\":{\"type\":\"array\",\"it" +
+				"ems\":\"eu.driver.model.sim.support.Location\"}},{\"name\":\"moveType\",\"doc\":\"Optional" +
+				" type of movement to consider calculating the route\",\"type\":{\"type\":\"enum\",\"name" +
+				"\":\"MoveType\",\"namespace\":\"eu.driver.model.sim.support\",\"symbols\":[\"Straight\",\"Cr" +
+				"ossCountry\",\"OnlyRoads\",\"RoadsAndCrossCountry\"]}},{\"name\":\"tags\",\"doc\":\"Optional" +
+				" map containing route request specific information: key – unique name of the spe" +
+				"cific property; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"" +
+				"type\":\"map\",\"values\":\"string\"}]}]}");
 		/// <summary>
-		/// Unique identifier of the request
+		/// Unique case-insensitive identifier of the request
 		/// </summary>
 		private string _id;
 		/// <summary>
-		/// Unique identifier of the connected application sending the request
+		/// Unique case-insensitive identifier of the connected application sending the request
 		/// </summary>
 		private string _applicant;
 		/// <summary>
@@ -29,9 +53,13 @@ namespace eu.driver.model.sim.request
 		/// </summary>
 		private eu.driver.model.sim.support.Location _start;
 		/// <summary>
-		/// Location that marks the end of the route
+		/// Ordered list of locations to visit consecutively
 		/// </summary>
-		private eu.driver.model.sim.support.Location _end;
+		private IList<eu.driver.model.sim.support.Location> _waypoints;
+		/// <summary>
+		/// Optional type of movement to consider calculating the route
+		/// </summary>
+		private eu.driver.model.sim.support.MoveType _moveType;
 		/// <summary>
 		/// Optional map containing route request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
@@ -44,7 +72,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the request
+		/// Unique case-insensitive identifier of the request
 		/// </summary>
 		public string id
 		{
@@ -58,7 +86,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the connected application sending the request
+		/// Unique case-insensitive identifier of the connected application sending the request
 		/// </summary>
 		public string applicant
 		{
@@ -86,17 +114,31 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Location that marks the end of the route
+		/// Ordered list of locations to visit consecutively
 		/// </summary>
-		public eu.driver.model.sim.support.Location end
+		public IList<eu.driver.model.sim.support.Location> waypoints
 		{
 			get
 			{
-				return this._end;
+				return this._waypoints;
 			}
 			set
 			{
-				this._end = value;
+				this._waypoints = value;
+			}
+		}
+		/// <summary>
+		/// Optional type of movement to consider calculating the route
+		/// </summary>
+		public eu.driver.model.sim.support.MoveType moveType
+		{
+			get
+			{
+				return this._moveType;
+			}
+			set
+			{
+				this._moveType = value;
 			}
 		}
 		/// <summary>
@@ -120,8 +162,9 @@ namespace eu.driver.model.sim.request
 			case 0: return this.id;
 			case 1: return this.applicant;
 			case 2: return this.start;
-			case 3: return this.end;
-			case 4: return this.tags;
+			case 3: return this.waypoints;
+			case 4: return this.moveType;
+			case 5: return this.tags;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -132,8 +175,9 @@ namespace eu.driver.model.sim.request
 			case 0: this.id = (System.String)fieldValue; break;
 			case 1: this.applicant = (System.String)fieldValue; break;
 			case 2: this.start = (eu.driver.model.sim.support.Location)fieldValue; break;
-			case 3: this.end = (eu.driver.model.sim.support.Location)fieldValue; break;
-			case 4: this.tags = (IDictionary<string,System.String>)fieldValue; break;
+			case 3: this.waypoints = (IList<eu.driver.model.sim.support.Location>)fieldValue; break;
+			case 4: this.moveType = (eu.driver.model.sim.support.MoveType)fieldValue; break;
+			case 5: this.tags = (IDictionary<string,System.String>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

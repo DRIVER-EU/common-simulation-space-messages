@@ -5,7 +5,7 @@
 //    is regenerated
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace eu.driver.model.sim.config
+namespace eu.driver.model.sim.support
 {
 	using System;
 	using System.Collections.Generic;
@@ -13,11 +13,10 @@ namespace eu.driver.model.sim.config
 	using Avro;
 	using Avro.Specific;
 	
-	public enum SessionState
+	public enum MarkerSize
 	{
-		Initializing,
-		Started,
-		Stopped,
-		Closed,
+		small,
+		medium,
+		large,
 	}
 }

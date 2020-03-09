@@ -15,7 +15,7 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Location : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Location"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""latitude"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is the equator"",""type"":""double""},{""name"":""longitude"",""doc"":""In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)"",""type"":""double""},{""name"":""altitude"",""doc"":""Optional in meters, where 0 is the surface of the WGS84-based ellipsoid"",""default"":null,""type"":[""null"",""double""]}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Location"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""latitude"",""doc"":""In decimal degrees, ranging from [-90, 90] where 0 is the equator"",""type"":""double""},{""name"":""longitude"",""doc"":""In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)"",""type"":""double""},{""name"":""altitude"",""doc"":""Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates"",""default"":null,""type"":[""null"",""double""]}]}");
 		/// <summary>
 		/// In decimal degrees, ranging from [-90, 90] where 0 is the equator
 		/// </summary>
@@ -25,7 +25,7 @@ namespace eu.driver.model.sim.support
 		/// </summary>
 		private double _longitude;
 		/// <summary>
-		/// Optional in meters, where 0 is the surface of the WGS84-based ellipsoid
+		/// Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates
 		/// </summary>
 		private System.Nullable<double> _altitude;
 		public virtual Schema Schema
@@ -64,7 +64,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Optional in meters, where 0 is the surface of the WGS84-based ellipsoid
+		/// Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates
 		/// </summary>
 		public System.Nullable<double> altitude
 		{

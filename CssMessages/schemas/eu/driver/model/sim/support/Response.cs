@@ -15,17 +15,17 @@ namespace eu.driver.model.sim.support
 	
 	public partial class Response : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the response"",""type"":""string""},{""name"":""request"",""doc"":""Unique identifier of the request this response is responding to"",""type"":""string""},{""name"":""code"",""doc"":""Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS"",""default"":null,""type"":[""null"",""int""]},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Response"",""namespace"":""eu.driver.model.sim.support"",""fields"":[{""name"":""id"",""doc"":""Unique case-insensitive identifier of the response"",""type"":""string""},{""name"":""request"",""doc"":""Unique case-insensitive identifier of the request this response is responding to"",""type"":""string""},{""name"":""code"",""doc"":""Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that common simulation space"",""default"":null,""type"":[""null"",""int""]},{""name"":""message"",""doc"":""Optional information accompanying the response code"",""default"":null,""type"":[""null"",""string""]},{""name"":""timestamp"",""doc"":""Optional UNIX Epoch time in milliseconds marking the time the respond was given"",""default"":null,""type"":[""null"",""long""],""logicalType"":""timestamp-millis""}]}");
 		/// <summary>
-		/// Unique identifier of the response
+		/// Unique case-insensitive identifier of the response
 		/// </summary>
 		private string _id;
 		/// <summary>
-		/// Unique identifier of the request this response is responding to
+		/// Unique case-insensitive identifier of the request this response is responding to
 		/// </summary>
 		private string _request;
 		/// <summary>
-		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
+		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that common simulation space
 		/// </summary>
 		private System.Nullable<int> _code;
 		/// <summary>
@@ -44,7 +44,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the response
+		/// Unique case-insensitive identifier of the response
 		/// </summary>
 		public string id
 		{
@@ -58,7 +58,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the request this response is responding to
+		/// Unique case-insensitive identifier of the request this response is responding to
 		/// </summary>
 		public string request
 		{
@@ -72,7 +72,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS
+		/// Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that common simulation space
 		/// </summary>
 		public System.Nullable<int> code
 		{

@@ -15,21 +15,21 @@ namespace eu.driver.model.sim.request
 	
 	public partial class RequestStartInject : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""RequestStartInject"",""namespace"":""eu.driver.model.sim.request"",""fields"":[{""name"":""id"",""doc"":""Unique identifier of the request"",""type"":""string""},{""name"":""applicant"",""doc"":""Unique identifier of the connected application sending the request"",""type"":""string""},{""name"":""inject"",""doc"":""Name of the inject that is requested to start"",""type"":""string""},{""name"":""tags"",""doc"":""Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]}],""_comment"":""""}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""RequestStartInject"",""namespace"":""eu.driver.model.sim.request"",""fields"":[{""name"":""id"",""doc"":""Unique case-insensitive identifier of the request"",""type"":""string""},{""name"":""applicant"",""doc"":""Unique case-insensitive identifier of the connected application sending the request"",""type"":""string""},{""name"":""inject"",""doc"":""Case-insensitive name of the inject that is requested to start"",""type"":""string""},{""name"":""tags"",""doc"":""Optional map containing start inject request specific information: key – unique name of the specific property; value – value of that property"",""default"":null,""type"":[""null"",{""type"":""map"",""values"":""string""}]}]}");
 		/// <summary>
-		/// Unique identifier of the request
+		/// Unique case-insensitive identifier of the request
 		/// </summary>
 		private string _id;
 		/// <summary>
-		/// Unique identifier of the connected application sending the request
+		/// Unique case-insensitive identifier of the connected application sending the request
 		/// </summary>
 		private string _applicant;
 		/// <summary>
-		/// Name of the inject that is requested to start
+		/// Case-insensitive name of the inject that is requested to start
 		/// </summary>
 		private string _inject;
 		/// <summary>
-		/// Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property
+		/// Optional map containing start inject request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
 		private IDictionary<string,System.String> _tags;
 		public virtual Schema Schema
@@ -40,7 +40,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the request
+		/// Unique case-insensitive identifier of the request
 		/// </summary>
 		public string id
 		{
@@ -54,7 +54,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the connected application sending the request
+		/// Unique case-insensitive identifier of the connected application sending the request
 		/// </summary>
 		public string applicant
 		{
@@ -68,7 +68,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Name of the inject that is requested to start
+		/// Case-insensitive name of the inject that is requested to start
 		/// </summary>
 		public string inject
 		{
@@ -82,7 +82,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property
+		/// Optional map containing start inject request specific information: key – unique name of the specific property; value – value of that property
 		/// </summary>
 		public IDictionary<string,System.String> tags
 		{

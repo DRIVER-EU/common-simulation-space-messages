@@ -16,42 +16,49 @@ namespace eu.driver.model.sim.entity
 	public partial class Post : ISpecificRecord
 	{
 		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"Post\",\"namespace\":\"eu.driver.model.sim.entity\",\"fields\":" +
-				"[{\"name\":\"id\",\"doc\":\"Unique identifier of the post\",\"type\":\"string\"},{\"name\":\"bo" +
-				"dy\",\"doc\":\"Body text of the post\",\"type\":\"string\"},{\"name\":\"header\",\"doc\":\"Optio" +
-				"nal header information of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"recor" +
-				"d\",\"name\":\"Header\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"" +
-				"from\",\"doc\":\"Sender of the post\",\"type\":\"string\"},{\"name\":\"date\",\"doc\":\"UNIX Epo" +
-				"ch time in milliseconds marking the time the post was published/updated\",\"type\":" +
-				"\"long\",\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Optional list of re" +
-				"cipients of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"str" +
-				"ing\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in carbon copy of the po" +
-				"st\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"b" +
-				"cc\",\"doc\":\"Optional list of recipients in blind carbon copy of the post\",\"defaul" +
-				"t\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"subject\",\"do" +
-				"c\":\"Optional Subject of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"nam" +
-				"e\":\"intro\",\"doc\":\"Optional introductory text of the post\",\"default\":null,\"type\":" +
-				"[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional list of (references to)" +
-				" attachments inside the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"ite" +
-				"ms\":\"string\"}]},{\"name\":\"location\",\"doc\":\"optional location the post is attached" +
-				" to\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"namespace" +
-				"\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In decimal d" +
-				"egrees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"},{\"name\":" +
-				"\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where 0 is the P" +
-				"rime Meridian (line going through the geographic north, Greenwich, and the geogr" +
-				"aphic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in meters, whe" +
-				"re 0 is the surface of the WGS84-based ellipsoid\",\"default\":null,\"type\":[\"null\"," +
-				"\"double\"]}]}]}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the post\",\"default\":nu" +
-				"ll,\"type\":[\"null\",\"string\"]},{\"name\":\"type\",\"doc\":\"Optional type of the post\",\"d" +
-				"efault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique id" +
-				"entifier of the connected application owning the post\",\"default\":null,\"type\":[\"n" +
-				"ull\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseco" +
-				"nds marking the time the update was performed\",\"default\":null,\"type\":[\"null\",\"lo" +
-				"ng\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map contai" +
-				"ning post specific information: key – unique name of the specific property; valu" +
-				"e – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\"" +
-				":\"string\"}]}],\"_comment\":\"\"}");
+				"[{\"name\":\"id\",\"doc\":\"Unique case-insensitive identifier of the post\",\"type\":\"str" +
+				"ing\"},{\"name\":\"body\",\"doc\":\"Body text of the post\",\"type\":\"string\"},{\"name\":\"hea" +
+				"der\",\"doc\":\"Optional header information of the post\",\"default\":null,\"type\":[\"nul" +
+				"l\",{\"type\":\"record\",\"name\":\"Header\",\"namespace\":\"eu.driver.model.sim.support\",\"f" +
+				"ields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"type\":\"string\"},{\"name\":\"date" +
+				"\",\"doc\":\"UNIX Epoch time in milliseconds marking the time the post was published" +
+				"/updated\",\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Op" +
+				"tional list of recipients of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"ar" +
+				"ray\",\"items\":\"string\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in carb" +
+				"on copy of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"stri" +
+				"ng\"}]},{\"name\":\"bcc\",\"doc\":\"Optional list of recipients in blind carbon copy of " +
+				"the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"na" +
+				"me\":\"subject\",\"doc\":\"Optional subject of the post\",\"default\":null,\"type\":[\"null\"" +
+				",\"string\"]},{\"name\":\"intro\",\"doc\":\"Optional introductory text of the post\",\"defa" +
+				"ult\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional map of" +
+				" (references to) attachments inside the post: key – unique reference to the atta" +
+				"chment (e.g. URI) or complete string-encoded attachment; value – media type of t" +
+				"he attachment (e.g. .pdf, .png, .zip)\",\"default\":null,\"type\":[\"null\",{\"type\":\"ma" +
+				"p\",\"values\":\"string\"}]},{\"name\":\"location\",\"doc\":\"Optional location of the sende" +
+				"r of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\"," +
+				"\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"latitude\",\"doc\":\"In" +
+				" decimal degrees, ranging from [-90, 90] where 0 is the equator\",\"type\":\"double\"" +
+				"},{\"name\":\"longitude\",\"doc\":\"In decimal degrees, ranging from (-180, 180] where " +
+				"0 is the Prime Meridian (line going through the geographic north, Greenwich, and" +
+				" the geographic south)\",\"type\":\"double\"},{\"name\":\"altitude\",\"doc\":\"Optional in m" +
+				"eters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed up" +
+				"on common ground level (specified inside the configuration guidelines). A positi" +
+				"ve number indicates a location outside the ellipsoid (or above the ground level)" +
+				", while a negative number indicates a location inside the ellipsoid (or below th" +
+				"e ground level). If an altitude is not provided, it is presumed that the locatio" +
+				"n is at the ground level of the provided latitude and longitude coordinates\",\"de" +
+				"fault\":null,\"type\":[\"null\",\"double\"]}]}]}]}]},{\"name\":\"name\",\"doc\":\"Optional nam" +
+				"e of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"type\",\"doc\":\"Op" +
+				"tional type of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner" +
+				"\",\"doc\":\"Optional unique case-insensitive identifier of the connected applicatio" +
+				"n owning the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\"," +
+				"\"doc\":\"Optional UNIX Epoch time in milliseconds marking the time the update was " +
+				"performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis" +
+				"\"},{\"name\":\"tags\",\"doc\":\"Optional map containing post specific information: key " +
+				"– unique name of the specific property; value – value of that property\",\"default" +
+				"\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}");
 		/// <summary>
-		/// Unique identifier of the post
+		/// Unique case-insensitive identifier of the post
 		/// </summary>
 		private string _id;
 		/// <summary>
@@ -71,7 +78,7 @@ namespace eu.driver.model.sim.entity
 		/// </summary>
 		private string _type;
 		/// <summary>
-		/// Optional unique identifier of the connected application owning the post
+		/// Optional unique case-insensitive identifier of the connected application owning the post
 		/// </summary>
 		private string _owner;
 		/// <summary>
@@ -90,7 +97,7 @@ namespace eu.driver.model.sim.entity
 			}
 		}
 		/// <summary>
-		/// Unique identifier of the post
+		/// Unique case-insensitive identifier of the post
 		/// </summary>
 		public string id
 		{
@@ -160,7 +167,7 @@ namespace eu.driver.model.sim.entity
 			}
 		}
 		/// <summary>
-		/// Optional unique identifier of the connected application owning the post
+		/// Optional unique case-insensitive identifier of the connected application owning the post
 		/// </summary>
 		public string owner
 		{
