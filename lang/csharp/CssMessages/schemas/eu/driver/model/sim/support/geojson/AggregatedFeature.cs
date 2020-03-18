@@ -119,15 +119,13 @@ namespace eu.driver.model.sim.support.geojson
 				"that order)\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"fillOpacity\",\"doc" +
 				"\":\"Optional opacity of the GeoJSON geometry (as defined by the simplestyle speci" +
 				"fication), ranging from [0, 1]\",\"default\":null,\"type\":[\"null\",\"float\"]}]}]},{\"na" +
-				"me\":\"orientation\",\"doc\":\"Optional orientation of the feature\",\"default\":null,\"ty" +
-				"pe\":[\"null\",\"eu.driver.model.sim.support.Orientation\"]},{\"name\":\"bbox\",\"doc\":\"Op" +
-				"tional bounding box around the feature in the following order [west, south, east" +
-				", north].\\\\tlength(bbox)=2×n,\\\\twhere n is the number of dimensions represented " +
-				"in the contained geometry, with all axes of the most south-westerly point follow" +
-				"ed by all axes of the more north-easterly point. The axes order of a bbox follow" +
-				"s the axes order of the geometry. The bbox values define shapes with edges that " +
-				"follow lines of constant longitude, latitude, and elevation\",\"default\":null,\"typ" +
-				"e\":[\"null\",{\"type\":\"array\",\"items\":\"double\"}]}]}");
+				"me\":\"bbox\",\"doc\":\"Optional bounding box around the feature in the following orde" +
+				"r [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensi" +
+				"ons represented in the contained geometry, with all axes of the most south-weste" +
+				"rly point followed by all axes of the more north-easterly point. The axes order " +
+				"of a bbox follows the axes order of the geometry. The bbox values define shapes " +
+				"with edges that follow lines of constant longitude, latitude, and elevation\",\"de" +
+				"fault\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"double\"}]}]}");
 		private eu.driver.model.sim.support.geojson.FeatureType _type;
 		/// <summary>
 		/// The geometry (as defined by the GeoJSON standard): Point – a point; MultiPoint – a collection of points; LineString – a collection of points forming a line; MultiLineString – a collection of lines; Polygon – a collection of points forming an area; MultiPolygon – a collection of areas; GeometryCollection – a collection of any of the types above
@@ -138,11 +136,7 @@ namespace eu.driver.model.sim.support.geojson
 		/// </summary>
 		private eu.driver.model.sim.support.geojson.Properties _properties;
 		/// <summary>
-		/// Optional orientation of the feature
-		/// </summary>
-		private eu.driver.model.sim.support.Orientation _orientation;
-		/// <summary>
-		/// Optional bounding box around the feature in the following order [west, south, east, north].\tlength(bbox)=2×n,\twhere n is the number of dimensions represented in the contained geometry, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometry. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
+		/// Optional bounding box around the feature in the following order [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensions represented in the contained geometry, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometry. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
 		/// </summary>
 		private IList<System.Double> _bbox;
 		public virtual Schema Schema
@@ -192,21 +186,7 @@ namespace eu.driver.model.sim.support.geojson
 			}
 		}
 		/// <summary>
-		/// Optional orientation of the feature
-		/// </summary>
-		public eu.driver.model.sim.support.Orientation orientation
-		{
-			get
-			{
-				return this._orientation;
-			}
-			set
-			{
-				this._orientation = value;
-			}
-		}
-		/// <summary>
-		/// Optional bounding box around the feature in the following order [west, south, east, north].\tlength(bbox)=2×n,\twhere n is the number of dimensions represented in the contained geometry, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometry. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
+		/// Optional bounding box around the feature in the following order [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensions represented in the contained geometry, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometry. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
 		/// </summary>
 		public IList<System.Double> bbox
 		{
@@ -226,8 +206,7 @@ namespace eu.driver.model.sim.support.geojson
 			case 0: return this.type;
 			case 1: return this.geometry;
 			case 2: return this.properties;
-			case 3: return this.orientation;
-			case 4: return this.bbox;
+			case 3: return this.bbox;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -238,8 +217,7 @@ namespace eu.driver.model.sim.support.geojson
 			case 0: this.type = (eu.driver.model.sim.support.geojson.FeatureType)fieldValue; break;
 			case 1: this.geometry = (System.Object)fieldValue; break;
 			case 2: this.properties = (eu.driver.model.sim.support.geojson.Properties)fieldValue; break;
-			case 3: this.orientation = (eu.driver.model.sim.support.Orientation)fieldValue; break;
-			case 4: this.bbox = (IList<System.Double>)fieldValue; break;
+			case 3: this.bbox = (IList<System.Double>)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

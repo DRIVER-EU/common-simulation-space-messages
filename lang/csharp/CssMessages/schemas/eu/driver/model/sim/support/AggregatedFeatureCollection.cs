@@ -123,33 +123,31 @@ namespace eu.driver.model.sim.support
 				" blue intensity of the desired color (in that order)\",\"default\":null,\"type\":[\"nu" +
 				"ll\",\"string\"]},{\"name\":\"fillOpacity\",\"doc\":\"Optional opacity of the GeoJSON geom" +
 				"etry (as defined by the simplestyle specification), ranging from [0, 1]\",\"defaul" +
-				"t\":null,\"type\":[\"null\",\"float\"]}]}]},{\"name\":\"orientation\",\"doc\":\"Optional orien" +
-				"tation of the feature\",\"default\":null,\"type\":[\"null\",\"eu.driver.model.sim.suppor" +
-				"t.Orientation\"]},{\"name\":\"bbox\",\"doc\":\"Optional bounding box around the feature " +
-				"in the following order [west, south, east, north].\\\\tlength(bbox)=2×n,\\\\twhere n" +
-				" is the number of dimensions represented in the contained geometry, with all axe" +
-				"s of the most south-westerly point followed by all axes of the more north-easter" +
-				"ly point. The axes order of a bbox follows the axes order of the geometry. The b" +
-				"box values define shapes with edges that follow lines of constant longitude, lat" +
-				"itude, and elevation\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"dou" +
-				"ble\"}]}]}}]},{\"name\":\"name\",\"doc\":\"Optional name of the feature collection\",\"def" +
-				"ault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"description\",\"doc\":\"Optional descr" +
-				"iption of the feature collection\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"nam" +
-				"e\":\"owner\",\"doc\":\"Optional unique case-insensitive identifier of the connected a" +
-				"pplication owning the feature collection\",\"default\":null,\"type\":[\"null\",\"string\"" +
-				"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking t" +
-				"he time the update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logical" +
-				"Type\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map containing feature " +
-				"collection specific information: key – unique name of the specific property; val" +
-				"ue – value of that property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values" +
-				"\":\"string\"}]},{\"name\":\"bbox\",\"doc\":\"Optional bounding box around the feature col" +
-				"lection in the following order [west, south, east, north].\\\\tlength(bbox)=2×n,\\\\" +
-				"twhere n is the number of dimensions represented in the contained geometries, wi" +
-				"th all axes of the most south-westerly point followed by all axes of the more no" +
-				"rth-easterly point. The axes order of a bbox follows the axes order of the geome" +
-				"tries. The bbox values define shapes with edges that follow lines of constant lo" +
-				"ngitude, latitude, and elevation\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\"," +
-				"\"items\":\"double\"}]}]}");
+				"t\":null,\"type\":[\"null\",\"float\"]}]}]},{\"name\":\"bbox\",\"doc\":\"Optional bounding box" +
+				" around the feature in the following order [west, south, east, north]. Length(bb" +
+				"ox)=2xn, where n is the number of dimensions represented in the contained geomet" +
+				"ry, with all axes of the most south-westerly point followed by all axes of the m" +
+				"ore north-easterly point. The axes order of a bbox follows the axes order of the" +
+				" geometry. The bbox values define shapes with edges that follow lines of constan" +
+				"t longitude, latitude, and elevation\",\"default\":null,\"type\":[\"null\",{\"type\":\"arr" +
+				"ay\",\"items\":\"double\"}]}]}}]},{\"name\":\"name\",\"doc\":\"Optional name of the feature " +
+				"collection\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"description\",\"doc\"" +
+				":\"Optional description of the feature collection\",\"default\":null,\"type\":[\"null\"," +
+				"\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique case-insensitive identifier of" +
+				" the connected application owning the feature collection\",\"default\":null,\"type\":" +
+				"[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in millis" +
+				"econds marking the time the update was performed\",\"default\":null,\"type\":[\"null\"," +
+				"\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional map con" +
+				"taining feature collection specific information: key – unique name of the specif" +
+				"ic property; value – value of that property\",\"default\":null,\"type\":[\"null\",{\"typ" +
+				"e\":\"map\",\"values\":\"string\"}]},{\"name\":\"bbox\",\"doc\":\"Optional bounding box around" +
+				" the feature collection in the following order [west, south, east, north]. Lengt" +
+				"h(bbox)=2xn, where n is the number of dimensions represented in the contained ge" +
+				"ometries, with all axes of the most south-westerly point followed by all axes of" +
+				" the more north-easterly point. The axes order of a bbox follows the axes order " +
+				"of the geometries. The bbox values define shapes with edges that follow lines of" +
+				" constant longitude, latitude, and elevation\",\"default\":null,\"type\":[\"null\",{\"ty" +
+				"pe\":\"array\",\"items\":\"double\"}]}]}");
 		private eu.driver.model.sim.support.geojson.FeatureCollectionType _type;
 		private IList<eu.driver.model.sim.support.geojson.AggregatedFeature> _features;
 		/// <summary>
@@ -173,7 +171,7 @@ namespace eu.driver.model.sim.support
 		/// </summary>
 		private IDictionary<string,System.String> _tags;
 		/// <summary>
-		/// Optional bounding box around the feature collection in the following order [west, south, east, north].\tlength(bbox)=2×n,\twhere n is the number of dimensions represented in the contained geometries, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometries. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
+		/// Optional bounding box around the feature collection in the following order [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensions represented in the contained geometries, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometries. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
 		/// </summary>
 		private IList<System.Double> _bbox;
 		public virtual Schema Schema
@@ -276,7 +274,7 @@ namespace eu.driver.model.sim.support
 			}
 		}
 		/// <summary>
-		/// Optional bounding box around the feature collection in the following order [west, south, east, north].\tlength(bbox)=2×n,\twhere n is the number of dimensions represented in the contained geometries, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometries. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
+		/// Optional bounding box around the feature collection in the following order [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensions represented in the contained geometries, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometries. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation
 		/// </summary>
 		public IList<System.Double> bbox
 		{

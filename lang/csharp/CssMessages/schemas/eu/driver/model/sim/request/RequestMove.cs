@@ -39,12 +39,13 @@ namespace eu.driver.model.sim.request
 				"t\":null,\"type\":[\"null\",\"double\"]}]}}},{\"name\":\"moveType\",\"doc\":\"Optional type of" +
 				" movement\",\"type\":{\"type\":\"enum\",\"name\":\"MoveType\",\"namespace\":\"eu.driver.model." +
 				"sim.support\",\"symbols\":[\"Straight\",\"CrossCountry\",\"OnlyRoads\",\"RoadsAndCrossCoun" +
-				"try\"]}},{\"name\":\"route\",\"doc\":\"Optional feature collection identifier of the pre" +
-				"ferred route that should be followed. This property should not be used together " +
-				"with the waypoints property\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"t" +
-				"ags\",\"doc\":\"Optional map containing transport request specific information: key " +
-				"– unique name of the specific property; value – value of that property\",\"default" +
-				"\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}");
+				"try\"]}},{\"name\":\"route\",\"doc\":\"Optional unique identifier of a feature collectio" +
+				"n representing the preferred route that should be followed. This property should" +
+				" not be used together with the waypoints property\",\"default\":null,\"type\":[\"null\"" +
+				",\"string\"]},{\"name\":\"tags\",\"doc\":\"Optional map containing transport request spec" +
+				"ific information: key – unique name of the specific property; value – value of t" +
+				"hat property\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}" +
+				"");
 		/// <summary>
 		/// Unique case-insensitive identifier of the request
 		/// </summary>
@@ -70,7 +71,7 @@ namespace eu.driver.model.sim.request
 		/// </summary>
 		private eu.driver.model.sim.support.MoveType _moveType;
 		/// <summary>
-		/// Optional feature collection identifier of the preferred route that should be followed. This property should not be used together with the waypoints property
+		/// Optional unique identifier of a feature collection representing the preferred route that should be followed. This property should not be used together with the waypoints property
 		/// </summary>
 		private string _route;
 		/// <summary>
@@ -169,7 +170,7 @@ namespace eu.driver.model.sim.request
 			}
 		}
 		/// <summary>
-		/// Optional feature collection identifier of the preferred route that should be followed. This property should not be used together with the waypoints property
+		/// Optional unique identifier of a feature collection representing the preferred route that should be followed. This property should not be used together with the waypoints property
 		/// </summary>
 		public string route
 		{

@@ -169,66 +169,64 @@ namespace eu.driver.model.sim.support
 				" for the red, green and blue intensity of the desired color (in that order)\",\"de" +
 				"fault\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"fillOpacity\",\"doc\":\"Optional opac" +
 				"ity of the GeoJSON geometry (as defined by the simplestyle specification), rangi" +
-				"ng from [0, 1]\",\"default\":null,\"type\":[\"null\",\"float\"]}]}]},{\"name\":\"orientation" +
-				"\",\"doc\":\"Optional orientation of the feature\",\"default\":null,\"type\":[\"null\",\"eu." +
-				"driver.model.sim.support.Orientation\"]},{\"name\":\"bbox\",\"doc\":\"Optional bounding " +
-				"box around the feature in the following order [west, south, east, north].\\\\tleng" +
-				"th(bbox)=2×n,\\\\twhere n is the number of dimensions represented in the contained" +
-				" geometry, with all axes of the most south-westerly point followed by all axes o" +
-				"f the more north-easterly point. The axes order of a bbox follows the axes order" +
-				" of the geometry. The bbox values define shapes with edges that follow lines of " +
-				"constant longitude, latitude, and elevation\",\"default\":null,\"type\":[\"null\",{\"typ" +
-				"e\":\"array\",\"items\":\"double\"}]}]}}]},{\"name\":\"name\",\"doc\":\"Optional name of the f" +
-				"eature collection\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"description" +
-				"\",\"doc\":\"Optional description of the feature collection\",\"default\":null,\"type\":[" +
-				"\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique case-insensitive identi" +
-				"fier of the connected application owning the feature collection\",\"default\":null," +
-				"\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UNIX Epoch time in" +
-				" milliseconds marking the time the update was performed\",\"default\":null,\"type\":[" +
-				"\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\",\"doc\":\"Optional " +
-				"map containing feature collection specific information: key – unique name of the" +
-				" specific property; value – value of that property\",\"default\":null,\"type\":[\"null" +
-				"\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name\":\"bbox\",\"doc\":\"Optional bounding box" +
-				" around the feature collection in the following order [west, south, east, north]" +
-				".\\\\tlength(bbox)=2×n,\\\\twhere n is the number of dimensions represented in the c" +
-				"ontained geometries, with all axes of the most south-westerly point followed by " +
-				"all axes of the more north-easterly point. The axes order of a bbox follows the " +
-				"axes order of the geometries. The bbox values define shapes with edges that foll" +
-				"ow lines of constant longitude, latitude, and elevation\",\"default\":null,\"type\":[" +
-				"\"null\",{\"type\":\"array\",\"items\":\"double\"}]}]},{\"type\":\"record\",\"name\":\"Aggregated" +
-				"Post\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"body\",\"doc\":\"" +
-				"Body text of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"header\"" +
-				",\"doc\":\"Optional header information of the post\",\"default\":null,\"type\":[\"null\",{" +
-				"\"type\":\"record\",\"name\":\"AggregatedHeader\",\"namespace\":\"eu.driver.model.sim.suppo" +
-				"rt\",\"fields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"default\":null,\"type\":[\"" +
-				"null\",\"string\"]},{\"name\":\"date\",\"doc\":\"UNIX Epoch time in milliseconds marking t" +
-				"he time the post was published/updated\",\"default\":null,\"type\":[\"null\",\"long\"],\"l" +
-				"ogicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Optional list of recipients " +
-				"of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{" +
-				"\"name\":\"cc\",\"doc\":\"Optional list of recipients in carbon copy of the post\",\"defa" +
-				"ult\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"bcc\",\"doc\"" +
-				":\"Optional list of recipients in blind carbon copy of the post\",\"default\":null,\"" +
-				"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"subject\",\"doc\":\"Optio" +
-				"nal subject of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"intro" +
-				"\",\"doc\":\"Optional introductory text of the post\",\"default\":null,\"type\":[\"null\",\"" +
-				"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional map of (references to) attachmen" +
-				"ts inside the post: key – unique reference to the attachment (e.g. URI) or compl" +
-				"ete string-encoded attachment; value – media type of the attachment (e.g. .pdf, " +
-				".png, .zip)\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"" +
-				"name\":\"location\",\"doc\":\"Optional location of the sender of the post\",\"default\":n" +
-				"ull,\"type\":[\"null\",\"Location\"]}]}]},{\"name\":\"name\",\"doc\":\"Optional name of the p" +
-				"ost\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"type\",\"doc\":\"Optional typ" +
-				"e of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"O" +
-				"ptional unique case-insensitive identifier of the connected application owning t" +
-				"he post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Opt" +
-				"ional UNIX Epoch time in milliseconds marking the time the update was performed\"" +
-				",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\"" +
-				":\"tags\",\"doc\":\"Optional map containing post specific information: key – unique n" +
-				"ame of the specific property; value – value of that property\",\"default\":null,\"ty" +
-				"pe\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}]}},{\"name\":\"timestamp\",\"doc\":\"O" +
-				"ptional UNIX Epoch time in milliseconds marking the time the aggregated update w" +
-				"as performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-mil" +
-				"lis\"}]}");
+				"ng from [0, 1]\",\"default\":null,\"type\":[\"null\",\"float\"]}]}]},{\"name\":\"bbox\",\"doc\"" +
+				":\"Optional bounding box around the feature in the following order [west, south, " +
+				"east, north]. Length(bbox)=2xn, where n is the number of dimensions represented " +
+				"in the contained geometry, with all axes of the most south-westerly point follow" +
+				"ed by all axes of the more north-easterly point. The axes order of a bbox follow" +
+				"s the axes order of the geometry. The bbox values define shapes with edges that " +
+				"follow lines of constant longitude, latitude, and elevation\",\"default\":null,\"typ" +
+				"e\":[\"null\",{\"type\":\"array\",\"items\":\"double\"}]}]}}]},{\"name\":\"name\",\"doc\":\"Option" +
+				"al name of the feature collection\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"na" +
+				"me\":\"description\",\"doc\":\"Optional description of the feature collection\",\"defaul" +
+				"t\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"owner\",\"doc\":\"Optional unique case-in" +
+				"sensitive identifier of the connected application owning the feature collection\"" +
+				",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp\",\"doc\":\"Optional UN" +
+				"IX Epoch time in milliseconds marking the time the update was performed\",\"defaul" +
+				"t\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"tags\"," +
+				"\"doc\":\"Optional map containing feature collection specific information: key – un" +
+				"ique name of the specific property; value – value of that property\",\"default\":nu" +
+				"ll,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]},{\"name\":\"bbox\",\"doc\":\"Optio" +
+				"nal bounding box around the feature collection in the following order [west, sou" +
+				"th, east, north]. Length(bbox)=2xn, where n is the number of dimensions represen" +
+				"ted in the contained geometries, with all axes of the most south-westerly point " +
+				"followed by all axes of the more north-easterly point. The axes order of a bbox " +
+				"follows the axes order of the geometries. The bbox values define shapes with edg" +
+				"es that follow lines of constant longitude, latitude, and elevation\",\"default\":n" +
+				"ull,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"double\"}]}]},{\"type\":\"record\",\"name\"" +
+				":\"AggregatedPost\",\"namespace\":\"eu.driver.model.sim.support\",\"fields\":[{\"name\":\"b" +
+				"ody\",\"doc\":\"Body text of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"na" +
+				"me\":\"header\",\"doc\":\"Optional header information of the post\",\"default\":null,\"typ" +
+				"e\":[\"null\",{\"type\":\"record\",\"name\":\"AggregatedHeader\",\"namespace\":\"eu.driver.mod" +
+				"el.sim.support\",\"fields\":[{\"name\":\"from\",\"doc\":\"Sender of the post\",\"default\":nu" +
+				"ll,\"type\":[\"null\",\"string\"]},{\"name\":\"date\",\"doc\":\"UNIX Epoch time in millisecon" +
+				"ds marking the time the post was published/updated\",\"default\":null,\"type\":[\"null" +
+				"\",\"long\"],\"logicalType\":\"timestamp-millis\"},{\"name\":\"to\",\"doc\":\"Optional list of" +
+				" recipients of the post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"" +
+				"string\"}]},{\"name\":\"cc\",\"doc\":\"Optional list of recipients in carbon copy of the" +
+				" post\",\"default\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\"" +
+				":\"bcc\",\"doc\":\"Optional list of recipients in blind carbon copy of the post\",\"def" +
+				"ault\":null,\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}]},{\"name\":\"subject\"," +
+				"\"doc\":\"Optional subject of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"" +
+				"name\":\"intro\",\"doc\":\"Optional introductory text of the post\",\"default\":null,\"typ" +
+				"e\":[\"null\",\"string\"]},{\"name\":\"attachments\",\"doc\":\"Optional map of (references t" +
+				"o) attachments inside the post: key – unique reference to the attachment (e.g. U" +
+				"RI) or complete string-encoded attachment; value – media type of the attachment " +
+				"(e.g. .pdf, .png, .zip)\",\"default\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"s" +
+				"tring\"}]},{\"name\":\"location\",\"doc\":\"Optional location of the sender of the post\"" +
+				",\"default\":null,\"type\":[\"null\",\"Location\"]}]}]},{\"name\":\"name\",\"doc\":\"Optional n" +
+				"ame of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"type\",\"doc\":\"" +
+				"Optional type of the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"own" +
+				"er\",\"doc\":\"Optional unique case-insensitive identifier of the connected applicat" +
+				"ion owning the post\",\"default\":null,\"type\":[\"null\",\"string\"]},{\"name\":\"timestamp" +
+				"\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the time the update wa" +
+				"s performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"timestamp-mill" +
+				"is\"},{\"name\":\"tags\",\"doc\":\"Optional map containing post specific information: ke" +
+				"y – unique name of the specific property; value – value of that property\",\"defau" +
+				"lt\":null,\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}]}]}]}},{\"name\":\"timesta" +
+				"mp\",\"doc\":\"Optional UNIX Epoch time in milliseconds marking the time the aggrega" +
+				"ted update was performed\",\"default\":null,\"type\":[\"null\",\"long\"],\"logicalType\":\"t" +
+				"imestamp-millis\"}]}");
 		/// <summary>
 		/// Unique case-insensitive identifier of the aggregation update
 		/// </summary>
