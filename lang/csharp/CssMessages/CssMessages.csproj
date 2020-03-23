@@ -54,6 +54,8 @@
     <Compile Include="schemas\eu\driver\model\sim\config\Heartbeat.cs" />
     <Compile Include="schemas\eu\driver\model\sim\config\SessionManagement.cs" />
     <Compile Include="schemas\eu\driver\model\sim\config\SessionState.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\TimeCommand.cs" />
+    <Compile Include="schemas\eu\driver\model\sim\config\TimeControl.cs" />
     <Compile Include="schemas\eu\driver\model\sim\config\TimeManagement.cs" />
     <Compile Include="schemas\eu\driver\model\sim\config\TimeState.cs" />
     <Compile Include="schemas\eu\driver\model\sim\entity\FeatureCollection.cs" />
